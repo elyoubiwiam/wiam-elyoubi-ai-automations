@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
       <div className="max-w-[1380px] mx-auto px-6">
         <div className="flex justify-between items-center text-sm font-semibold">
           <Link to="/" className="text-[18px] font-bold tracking-tight hover:opacity-70 transition-opacity">
-            RAUM
+            WIAM EL YOUBI
           </Link>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="mt-6 text-sm opacity-70">
-          <p>© {new Date().getFullYear()} RAUM. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Wiam El Youbi. All rights reserved.</p>
         </div>
       </div>
     </footer>

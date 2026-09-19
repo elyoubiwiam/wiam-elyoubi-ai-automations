@@ -19,26 +19,26 @@ type View = 'main' | 'calculator' | 'contact';
 const suggestions = [
   {
     icon: Calculator,
-    label: "Calculate the price of a project",
-    description: "Get an estimate for your interior design project",
+    label: "Calculate a project estimate",
+    description: "Get a rough estimate for your automation project",
     action: "calculate",
   },
   {
     icon: Mail,
-    label: "Contact us",
-    description: "Send us a message about your project",
+    label: "Contact me",
+    description: "Send a message about your project",
     action: "contact",
   },
   {
     icon: Users,
-    label: "Learn more about us",
-    description: "Discover RAUM's story and philosophy",
+    label: "Learn more about me",
+    description: "My background and approach",
     action: "about",
   },
   {
     icon: Info,
-    label: "Know more about our services",
-    description: "Explore what we offer",
+    label: "Explore my services",
+    description: "What I build and how I work",
     action: "services",
   },
 ];

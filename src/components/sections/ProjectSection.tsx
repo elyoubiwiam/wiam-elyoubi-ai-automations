@@ -30,16 +30,17 @@ const ListIcon = ({ active }: { active: boolean }) => (
   </svg>
 );
 
-type FilterType = 'all' | 'commercial' | 'residential';
+type FilterType = 'all' | 'automation' | 'tools' | 'ai';
 type LocationFilter = 'all' | string;
 
-// Extract unique locations from projects
+// Extract unique client types from projects
 const locations = ['all', ...Array.from(new Set(projects.map(p => p.location)))];
 
 const typeOptions: { value: FilterType; label: string }[] = [
   { value: 'all', label: 'All types' },
-  { value: 'commercial', label: 'Commercial' },
-  { value: 'residential', label: 'Residential' },
+  { value: 'automation', label: 'Automation' },
+  { value: 'tools', label: 'Custom tools' },
+  { value: 'ai', label: 'AI integration' },
 ];
 
 interface FilterDropdownProps {
@@ -139,9 +140,11 @@ const ProjectSection: React.FC = () => {
 
   const filteredProjects = useMemo(() => {
     return projects.filter(project => {
+      const category = project.category.toLowerCase();
       const matchesType = typeFilter === 'all' || 
-        (typeFilter === 'commercial' && project.category.toLowerCase().includes('commercial')) ||
-        (typeFilter === 'residential' && project.category.toLowerCase().includes('residential'));
+        (typeFilter === 'automation' && category.includes('automation')) ||
+        (typeFilter === 'tools' && category.includes('tool')) ||
+        (typeFilter === 'ai' && category.includes('ai'));
       
       const matchesLocation = locationFilter === 'all' || project.location === locationFilter;
       
@@ -167,8 +170,8 @@ const ProjectSection: React.FC = () => {
       <div className="relative z-10">
         <AnimatedSection>
           <h2 className="text-heading-sm md:text-heading-md lg:text-heading font-semibold text-foreground">
-            Selected projects focusing on material spatial efficiency, and
-            long-term usability.
+            Selected projects showing how automation removes manual work
+            and speeds up day-to-day operations.
           </h2>
         </AnimatedSection>
 
@@ -183,10 +186,10 @@ const ProjectSection: React.FC = () => {
               onChange={(v) => setTypeFilter(v as FilterType)}
             />
             <FilterDropdown
-              label="Location"
+              label="Client"
               options={locations.map(loc => ({
                 value: loc,
-                label: loc === 'all' ? 'All locations' : loc,
+                label: loc === 'all' ? 'All clients' : loc,
               }))}
               value={locationFilter}
               onChange={setLocationFilter}

@@ -1,14 +1,14 @@
-# RAUM Studio Landing Page
+# Wiam El Youbi — AI Automation Portfolio
 
-Launch your agency website design with a command-palette-driven landing page that showcases projects, estimates costs, and converts visitors in hours.
+A personal portfolio for Wiam El Youbi, showcasing AI automations, custom internal tools, and integrations that help businesses work faster and more efficiently.
 
-This project was built with [Lovable](https://lovable.dev).
+Built with [Lovable](https://lovable.dev).
 
-**Live app**: https://raum-studio-landing-page-b13e8bd4.lovable.app
+**Live app**: https://wiam-elyoubi-ai-automations.lovable.app
 
 ## Build with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/b13e8bd4-ab86-4566-a03f-38a533722c3a).
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ca221759-82d6-4d95-b2f8-f559801cf940).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.

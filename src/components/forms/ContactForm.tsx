@@ -70,7 +70,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
 
       toast({
         title: 'Message sent',
-        description: "We'll get back to you within 24 hours.",
+        description: "I'll get back to you within 24 hours.",
       });
       onClose();
     } catch (err) {
@@ -105,7 +105,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
 
       <h2 className="text-lg font-semibold text-foreground mb-2">Get in touch</h2>
       <p className="text-sm text-muted-foreground mb-6">
-        Tell us about your project and we'll respond within 24 hours.
+        Tell me about your project and I'll respond within 24 hours.
       </p>
 
       <form onSubmit={handleSubmit} noValidate className="space-y-4">
@@ -144,7 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
             id="contact-message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            placeholder="Tell us about your project..."
+            placeholder="Tell me about your project..."
             rows={4}
             maxLength={2000}
             aria-invalid={!!errors.message}
