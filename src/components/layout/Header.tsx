@@ -6,13 +6,12 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
   return (
     <header ref={ref} className="relative flex w-full items-center justify-between py-4 border-b border-muted">
       {/* Logo - left */}
-      <Link to="/" className="w-[120px] md:w-[220px] flex-shrink-0 text-foreground hover:opacity-70 transition-opacity z-10">
-        <span className="hidden md:inline text-[20px] lg:text-[24px] font-bold tracking-tight leading-none whitespace-nowrap">
-          Wiam El Youbi
-        </span>
-        <span className="md:hidden text-[20px] font-bold tracking-tight leading-none">
-          WIAM
-        </span>
+      <Link to="/" className="w-[120px] md:w-[220px] flex-shrink-0 hover:opacity-70 transition-opacity z-10">
+        <img
+          src={logoAsset.url}
+          alt="Wiam El Youbi"
+          className="h-8 md:h-10 w-auto dark:invert"
+        />
       </Link>
       
       {/* Centered text - absolutely positioned to always be centered */}
