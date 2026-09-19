@@ -3,7 +3,6 @@ import { Command as CommandPrimitive } from 'cmdk';
 import { Dialog, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
 import { Calculator, Users, Info, Home, Briefcase, Mail, Search } from 'lucide-react';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useNavigate } from 'react-router-dom';
 import ContactForm from '@/components/forms/ContactForm';
 import CalculatorForm from '@/components/forms/CalculatorForm';
