@@ -44,14 +44,14 @@ const AboutSection: React.FC = () => {
           
           {/* Mobile text - visible only on mobile */}
           <p className="block md:hidden pt-6 text-heading-sm font-semibold text-foreground">
-            I'm Wiam El Youbi. I build AI automations and custom tools that help businesses work faster — less manual work, fewer errors, and more time for the work that actually needs a human.
+            I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.
           </p>
           
           {/* Tablet text - visible only on tablet */}
-          <p className="hidden md:block lg:hidden pt-6 text-heading-md font-semibold text-foreground py-0">                                          I'm Wiam El Youbi. I build AI automations and custom tools that help businesses work faster — less manual work, fewer errors, and more time for the work that actually needs a human.</p>
+          <p className="hidden md:block lg:hidden pt-6 text-heading-md font-semibold text-foreground py-0">I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.</p>
           
           {/* Desktop text with CSS float spacer */}
-          <p className="hidden lg:block pt-0 text-heading font-semibold text-foreground">                                      I'm Wiam El Youbi. I build AI automations and custom tools that help businesses work faster — less manual work, fewer errors, and more time for the work that actually needs a human.</p>
+          <p className="hidden lg:block pt-0 text-heading font-semibold text-foreground">I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.</p>
         </motion.div>
       </div>
     </section>;
