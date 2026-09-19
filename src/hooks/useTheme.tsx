@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export type Theme = 'neutral' | 'pink' | 'green' | 'yellow' | 'contrast';
+export type Theme = 'light' | 'dark' | 'colorblind';
+
+const THEMES: Theme[] = ['light', 'dark', 'colorblind'];
+const STORAGE_KEY = 'wey-theme';
 
 interface ThemeContextType {
   theme: Theme;
@@ -12,22 +15,32 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      return (localStorage.getItem('raum-theme') as Theme) || 'neutral';
+      const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
+      if (stored && THEMES.includes(stored)) return stored;
+      if (window.matchMedia?.('(prefers-color-scheme: dark)').matches) return 'dark';
     }
-    return 'neutral';
+    return 'light';
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    
-    // Remove all theme classes
-    root.classList.remove('theme-neutral', 'theme-pink', 'theme-green', 'theme-yellow', 'theme-contrast');
-    
-    // Add the current theme class
-    root.classList.add(`theme-${theme}`);
-    
-    // Persist to localStorage
-    localStorage.setItem('raum-theme', theme);
+
+    root.classList.remove(
+      'mode-light',
+      'mode-dark',
+      'mode-colorblind',
+      // legacy classes
+      'theme-neutral',
+      'theme-pink',
+      'theme-green',
+      'theme-yellow',
+      'theme-contrast',
+    );
+    root.classList.add(`mode-${theme}`);
+    root.classList.toggle('dark', theme === 'dark');
+    root.style.colorScheme = theme === 'dark' ? 'dark' : 'light';
+
+    localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
   return (
