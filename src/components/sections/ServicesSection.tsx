@@ -86,11 +86,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
       {/* Background text */}
       <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none">
         <motion.div 
-          initial={{ opacity: 0, x: -100 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          className="relative whitespace-nowrap text-center text-5xl font-semibold leading-none bg-gradient-to-b from-foreground/10 to-transparent bg-clip-text text-transparent sm:text-6xl md:text-display-md lg:text-display"
+          className="relative w-full whitespace-nowrap text-center text-[clamp(3rem,14vw,13rem)] font-semibold leading-none bg-gradient-to-b from-foreground/10 to-transparent bg-clip-text text-transparent"
         >
           SERVICES
         </motion.div>
