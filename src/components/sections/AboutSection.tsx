@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import wiamAboutAsset from '@/assets/wiam-about.jpg.asset.json';
+import wiamAboutImage from '@/assets/wiam-about.jpg';
 
 const AboutSection: React.FC = () => {
   return <section id="about" className="relative w-full pt-24 pb-16">
@@ -40,7 +40,7 @@ const AboutSection: React.FC = () => {
         ease: [0.25, 0.1, 0.25, 1]
       }} className="grid grid-cols-1 items-start gap-8 md:grid-cols-[minmax(260px,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
           <div className="aspect-[4/5] w-full overflow-hidden">
-            <img src={wiamAboutAsset.url} alt="Wiam El Youbi" className="h-full w-full object-cover object-center" />
+            <img src={wiamAboutImage} alt="Wiam El Youbi" className="h-full w-full object-cover object-center" />
           </div>
 
           <p className="text-heading-sm font-semibold text-foreground md:text-heading-md lg:text-heading">
