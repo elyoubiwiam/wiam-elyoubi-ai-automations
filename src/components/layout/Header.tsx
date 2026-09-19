@@ -7,7 +7,7 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
       {/* Logo - left */}
       <Link to="/" className="w-[120px] md:w-[220px] flex-shrink-0 text-foreground hover:opacity-70 transition-opacity z-10">
         <span className="hidden md:inline text-[20px] lg:text-[24px] font-bold tracking-tight leading-none whitespace-nowrap">
-          WIAM EL YOUBI
+          Wiam El Youbi
         </span>
         <span className="md:hidden text-[20px] font-bold tracking-tight leading-none">
           WIAM
