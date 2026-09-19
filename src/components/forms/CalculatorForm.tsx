@@ -47,6 +47,32 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
     { value: 'support', label: 'Build + Support', description: 'Build plus ongoing maintenance and improvements', multiplier: 120 },
   ];
 
+  interface OptionButtonProps {
+    selected: boolean;
+    anySelected: boolean;
+    onSelect: () => void;
+    ariaLabel: string;
+    children: React.ReactNode;
+  }
+
+  const OptionButton: React.FC<OptionButtonProps> = ({ selected, anySelected, onSelect, ariaLabel, children }) => (
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-pressed={selected}
+      aria-label={ariaLabel}
+      className={`w-full text-left p-3 rounded-md border border-highlight bg-highlight text-highlight-foreground transition-all duration-200 ${
+        selected
+          ? 'scale-[1.02] opacity-100 shadow-md ring-2 ring-highlight-foreground/30'
+          : anySelected
+            ? 'opacity-40 hover:opacity-70'
+            : 'hover:-translate-y-0.5 hover:shadow-md'
+      }`}
+    >
+      {children}
+    </button>
+  );
+
   const calculateEstimate = () => {
     const systems = parseFloat(formData.systems) || 0;
     const engagementMultiplier = engagementLevels.find(s => s.value === formData.engagement)?.multiplier || 0;
@@ -147,18 +173,16 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
           
           <div className="space-y-2">
             {projectTypes.map((type) => (
-              <button
+              <OptionButton
                 key={type.value}
-                onClick={() => setFormData({ ...formData, projectType: type.value as ProjectType })}
-                className={`w-full text-left p-3 rounded-md border transition-colors ${
-                  formData.projectType === type.value 
-                     ? 'border-highlight bg-highlight text-highlight-foreground' 
-                     : 'border-highlight bg-highlight text-highlight-foreground hover:opacity-85'
-                }`}
+                selected={formData.projectType === type.value}
+                anySelected={formData.projectType !== ''}
+                onSelect={() => setFormData({ ...formData, projectType: type.value as ProjectType })}
+                ariaLabel={type.label}
               >
                 <span className="text-sm font-medium text-highlight-foreground">{type.label}</span>
                 <p className="text-xs text-highlight-foreground/75">{type.description}</p>
-              </button>
+              </OptionButton>
             ))}
           </div>
         </div>
@@ -189,21 +213,19 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
           
           <div className="space-y-2">
             {engagementLevels.map((level) => (
-              <button
+              <OptionButton
                 key={level.value}
-                onClick={() => setFormData({ ...formData, engagement: level.value as Engagement })}
-                className={`w-full text-left p-3 rounded-md border transition-colors ${
-                  formData.engagement === level.value 
-                     ? 'border-highlight bg-highlight text-highlight-foreground' 
-                     : 'border-highlight bg-highlight text-highlight-foreground hover:opacity-85'
-                }`}
+                selected={formData.engagement === level.value}
+                anySelected={formData.engagement !== ''}
+                onSelect={() => setFormData({ ...formData, engagement: level.value as Engagement })}
+                ariaLabel={level.label}
               >
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-highlight-foreground">{level.label}</span>
                   <span className="text-xs text-highlight-foreground/75">~€{level.multiplier}/system</span>
                 </div>
                 <p className="text-xs text-highlight-foreground/75">{level.description}</p>
-              </button>
+              </OptionButton>
             ))}
           </div>
         </div>
