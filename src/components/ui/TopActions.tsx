@@ -16,7 +16,7 @@ const TopActions: React.FC<TopActionsProps> = ({ onOpenCommandMenu }) => {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="fixed right-6 top-4 z-50 flex items-center gap-1.5">
+    <div className="absolute right-6 top-4 z-50 flex items-center gap-1.5">
       <div
         role="group"
         aria-label="Colour mode"

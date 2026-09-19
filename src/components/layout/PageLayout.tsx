@@ -26,7 +26,7 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-background">
+      <div className="relative min-h-screen bg-background">
         <TopActions onOpenCommandMenu={() => setCommandOpen(true)} />
         <CommandMenu open={commandOpen} onOpenChange={setCommandOpen} />
         
