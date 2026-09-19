@@ -100,15 +100,15 @@ const ProjectDetail: React.FC = () => {
               className="grid grid-cols-2 md:grid-cols-4 gap-8 py-8 border-y border-muted mb-16"
             >
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Area</p>
-                <p className="text-sm font-semibold text-foreground">{project.area}</p>
+                <p className="text-xs text-muted-foreground mb-1">Stack</p>
+                <p className="text-sm font-semibold text-foreground">{project.stack}</p>
               </div>
               <div>
                 <p className="text-xs text-muted-foreground mb-1">Duration</p>
                 <p className="text-sm font-semibold text-foreground">{project.duration}</p>
               </div>
               <div>
-                <p className="text-xs text-muted-foreground mb-1">Location</p>
+                <p className="text-xs text-muted-foreground mb-1">Client</p>
                 <p className="text-sm font-semibold text-foreground">{project.location}</p>
               </div>
               <div>
@@ -124,7 +124,7 @@ const ProjectDetail: React.FC = () => {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mb-16"
             >
-              <p className="text-xs text-muted-foreground mb-3">Services Provided</p>
+              <p className="text-xs text-muted-foreground mb-3">What I Built</p>
               <div className="flex flex-wrap gap-2">
                 {project.services.map((service) => (
                   <span 
@@ -153,7 +153,7 @@ const ProjectDetail: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.5 }}
               >
-                <h2 className="text-2xl font-semibold text-foreground mb-4">Our Approach</h2>
+                <h2 className="text-2xl font-semibold text-foreground mb-4">The Approach</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">{project.approach}</p>
               </motion.div>
             </div>

@@ -19,15 +19,15 @@ interface CalculatorFormProps {
   onClose: () => void;
 }
 
-type ProjectType = 'residential' | 'commercial' | 'hospitality' | '';
-type ServiceLevel = 'consulting' | 'design' | 'full' | '';
+type ProjectType = 'workflow' | 'tool' | 'ai' | '';
+type Engagement = 'build' | 'advise' | 'support' | '';
 
 const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     projectType: '' as ProjectType,
-    area: '',
-    serviceLevel: '' as ServiceLevel,
+    systems: '',
+    engagement: '' as Engagement,
     email: ''
   });
   const [estimate, setEstimate] = useState<number | null>(null);
@@ -36,23 +36,23 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
 
 
   const projectTypes = [
-    { value: 'residential', label: 'Residential', description: 'Apartments, houses, private spaces' },
-    { value: 'commercial', label: 'Commercial', description: 'Offices, retail, workspaces' },
-    { value: 'hospitality', label: 'Hospitality', description: 'Hotels, restaurants, cafés' },
+    { value: 'workflow', label: 'Workflow Automation', description: 'Connect the tools you already use so work moves without manual steps' },
+    { value: 'tool', label: 'Custom Tool', description: 'A new internal app or dashboard built around your process' },
+    { value: 'ai', label: 'AI Integration', description: 'AI handling drafting, sorting, or summarizing inside your workflow' },
   ];
 
-  const serviceLevels = [
-    { value: 'consulting', label: 'Consulting', description: 'Design review & guidance', multiplier: 80 },
-    { value: 'design', label: 'Design Only', description: 'Full design package', multiplier: 150 },
-    { value: 'full', label: 'Full Service', description: 'Design + project management', multiplier: 250 },
+  const engagementLevels = [
+    { value: 'build', label: 'Build Only', description: 'I build it and hand it over', multiplier: 60 },
+    { value: 'advise', label: 'Build + Advise', description: 'Build plus onboarding and process advice', multiplier: 90 },
+    { value: 'support', label: 'Build + Support', description: 'Build plus ongoing maintenance and improvements', multiplier: 120 },
   ];
 
   const calculateEstimate = () => {
-    const area = parseFloat(formData.area) || 0;
-    const serviceMultiplier = serviceLevels.find(s => s.value === formData.serviceLevel)?.multiplier || 0;
-    const typeMultiplier = formData.projectType === 'hospitality' ? 1.3 : formData.projectType === 'commercial' ? 1.15 : 1;
-    
-    return Math.round(area * serviceMultiplier * typeMultiplier);
+    const systems = parseFloat(formData.systems) || 0;
+    const engagementMultiplier = engagementLevels.find(s => s.value === formData.engagement)?.multiplier || 0;
+    const typeMultiplier = formData.projectType === 'ai' ? 1.4 : formData.projectType === 'tool' ? 1.2 : 1;
+
+    return Math.round((systems * engagementMultiplier * typeMultiplier) / 100) * 100;
   };
 
   const handleNext = () => {
@@ -77,8 +77,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
         body: {
           email: parsedEmail.data,
           projectType: formData.projectType,
-          area: parseFloat(formData.area),
-          serviceLevel: formData.serviceLevel,
+          systems: parseFloat(formData.systems),
+          engagement: formData.engagement,
           estimate: estimate ?? calculateEstimate(),
         },
       });
@@ -89,7 +89,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
 
       toast({
         title: 'Estimate sent!',
-        description: "We've received your request and will email the detailed breakdown.",
+        description: "I've received your request and will email the detailed breakdown.",
       });
       onClose();
     } catch (err) {
@@ -108,8 +108,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
   const canProceed = () => {
     switch (step) {
       case 1: return formData.projectType !== '';
-      case 2: return formData.area !== '' && parseFloat(formData.area) > 0;
-      case 3: return formData.serviceLevel !== '';
+      case 2: return formData.systems !== '' && parseFloat(formData.systems) > 0;
+      case 3: return formData.engagement !== '';
       case 4: return formData.email.trim() !== '';
       default: return false;
     }
@@ -143,7 +143,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
       {step === 1 && (
         <div>
           <h2 className="text-lg font-semibold text-foreground mb-2">Project type</h2>
-          <p className="text-sm text-muted-foreground mb-4">What kind of space are we designing?</p>
+          <p className="text-sm text-muted-foreground mb-4">What should I build for you?</p>
           
           <div className="space-y-2">
             {projectTypes.map((type) => (
@@ -166,41 +166,41 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
 
       {step === 2 && (
         <div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">Project size</h2>
-          <p className="text-sm text-muted-foreground mb-4">Approximate area in square meters</p>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Complexity</h2>
+          <p className="text-sm text-muted-foreground mb-4">Roughly how many tools or systems are involved?</p>
           
           <div className="relative">
             <Input
               type="number"
-              value={formData.area}
-              onChange={(e) => setFormData({ ...formData, area: e.target.value })}
-              placeholder="e.g. 120"
-              className="bg-foreground/5 border-foreground/20 text-foreground placeholder:text-muted-foreground focus:border-foreground/40 pr-12"
+              value={formData.systems}
+              onChange={(e) => setFormData({ ...formData, systems: e.target.value })}
+              placeholder="e.g. 3"
+              className="bg-foreground/5 border-foreground/20 text-foreground placeholder:text-muted-foreground focus:border-foreground/40 pr-16"
             />
-            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">m²</span>
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-sm text-muted-foreground">systems</span>
           </div>
         </div>
       )}
 
       {step === 3 && (
         <div>
-          <h2 className="text-lg font-semibold text-foreground mb-2">Service level</h2>
-          <p className="text-sm text-muted-foreground mb-4">How involved should we be?</p>
+          <h2 className="text-lg font-semibold text-foreground mb-2">Involvement</h2>
+          <p className="text-sm text-muted-foreground mb-4">How involved should I be after launch?</p>
           
           <div className="space-y-2">
-            {serviceLevels.map((level) => (
+            {engagementLevels.map((level) => (
               <button
                 key={level.value}
-                onClick={() => setFormData({ ...formData, serviceLevel: level.value as ServiceLevel })}
+                onClick={() => setFormData({ ...formData, engagement: level.value as Engagement })}
                 className={`w-full text-left p-3 rounded-md border transition-colors ${
-                  formData.serviceLevel === level.value 
+                  formData.engagement === level.value 
                     ? 'border-foreground bg-foreground/5' 
                     : 'border-foreground/20 hover:border-foreground/40'
                 }`}
               >
                 <div className="flex justify-between items-center">
                   <span className="text-sm font-medium text-foreground">{level.label}</span>
-                  <span className="text-xs text-muted-foreground">~€{level.multiplier}/m²</span>
+                  <span className="text-xs text-muted-foreground">~€{level.multiplier}/system</span>
                 </div>
                 <p className="text-xs text-muted-foreground">{level.description}</p>
               </button>
@@ -222,7 +222,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
               €{estimate?.toLocaleString()}
             </div>
             <p className="text-xs text-muted-foreground mt-2">
-              This is a rough estimate. Final pricing depends on materials, complexity, and timeline.
+              This is a rough estimate. Final pricing depends on the specifics of your process and timeline.
             </p>
           </div>
 

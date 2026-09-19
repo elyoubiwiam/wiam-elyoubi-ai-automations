@@ -53,31 +53,31 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
   const services: Service[] = [
     { 
       letter: "A", 
-      title: "Interior Architecture", 
-      shortDescription: "Concept, planning, and spatial strategy.",
-      fullDescription: "We transform spaces through thoughtful architectural interventions. Our approach begins with understanding how you live and work, then crafting environments that enhance daily rituals. From initial sketches to detailed construction documents, we guide every phase with precision and care.",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80"
+      title: "Workflow Automation", 
+      shortDescription: "Connect your tools so data moves without manual steps.",
+      fullDescription: "I map how information moves through your business, then automate the handoffs. Quotes, onboarding, reporting, follow-ups — anything that gets copied from one tool to another is a candidate. The result is fewer errors and hours back every week.",
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
     },
     { 
       letter: "B", 
-      title: "Residential Design", 
-      shortDescription: "Apartments, houses, long-term living concepts.",
-      fullDescription: "Your home should be a sanctuary. We design residential spaces that balance beauty with practicality, creating rooms that feel both curated and effortlessly comfortable. Whether it's a compact apartment or a sprawling family home, we consider light, flow, and the quiet moments that make a house feel like home.",
-      image: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80"
+      title: "Custom Internal Tools", 
+      shortDescription: "Software built around how your team actually works.",
+      fullDescription: "Off-the-shelf software forces your process into someone else's template. I build lean internal tools that match your workflow exactly — dashboards, trackers, admin panels — without the features nobody uses.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
     },
     { 
       letter: "C", 
-      title: "Commercial Spaces", 
-      shortDescription: "Offices, studios, hospitality, retail.",
-      fullDescription: "Commercial environments shape how people work, shop, and connect. We design offices that inspire productivity, retail spaces that tell your brand's story, and hospitality venues that leave lasting impressions. Every detail is considered to support your business objectives while creating memorable experiences.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+      title: "AI Integrations", 
+      shortDescription: "Put AI models to work on real operational tasks.",
+      fullDescription: "AI is only useful when it's wired into your actual process. I integrate language models into the tools you already use to draft documents, sort incoming requests, summarize threads, and answer routine questions — with humans still in control.",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
     },
     { 
       letter: "D", 
-      title: "Consulting", 
-      shortDescription: "Material selection, layout optimisation, design reviews.",
-      fullDescription: "Not every project requires full-service design. Our consulting services offer expert guidance on specific challenges—whether you need help selecting the right materials, optimizing an existing layout, or reviewing plans from another team. We bring clarity and confidence to your decision-making process.",
-      image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+      title: "Automation Consulting", 
+      shortDescription: "Know what's worth automating before you spend on it.",
+      fullDescription: "Not every process should be automated. I review how your team works, identify where automation will actually pay off, and give you a prioritized plan you can act on — with or without me.",
+      image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80"
     }
   ];
 
@@ -102,7 +102,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
         {/* Title - top left */}
         <AnimatedSection className="max-w-[420px] mb-12">
           <h2 className="text-subheading-sm md:text-subheading-md lg:text-subheading font-medium text-foreground">
-            From early concept to realised space. Interiors shaped by aesthetic style, material, and proportions.
+            From first audit to a working system. Automations and tools built to cut repetitive work.
           </h2>
         </AnimatedSection>
 

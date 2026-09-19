@@ -39,19 +39,19 @@ const AboutSection: React.FC = () => {
       }} className="flex flex-col">
           {/* Image wrapper - responsive height */}
           <div className="h-[412px] md:h-[515px] lg:h-[618px]">
-            <img src="https://api.builder.io/api/v1/image/assets/20f31d2b4c414a48ac0232fce85f1621/b7da09d8830ece1db455a2302eaa5ca036a5ff3c?placeholderIfAbsent=true" alt="RAUM studio workspace" className="absolute left-0 top-[40px] w-full md:w-[343px] lg:w-[412px] h-[412px] md:h-[515px] lg:h-[618px] object-cover max-md:relative max-md:top-0" />
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" alt="Wiam at work" className="absolute left-0 top-[40px] w-full md:w-[343px] lg:w-[412px] h-[412px] md:h-[515px] lg:h-[618px] object-cover max-md:relative max-md:top-0" />
           </div>
           
           {/* Mobile text - visible only on mobile */}
           <p className="block md:hidden pt-6 text-heading-sm font-semibold text-foreground">
-            RAUM was founded to create interiors that feel calm, functional, and durable. The studio works across residential and commercial projects with a strong focus on proportion, light, and material quality.
+            I'm Wiam El Youbi. I build AI automations and custom tools that help businesses work faster — less manual work, fewer errors, and more time for the work that actually needs a human.
           </p>
           
           {/* Tablet text - visible only on tablet */}
-          <p className="hidden md:block lg:hidden pt-6 text-heading-md font-semibold text-foreground py-0">                                            RAUM was founded to create interiors that feel calm, functional, and durable. The studio works across residential and commercial projects with a strong focus on proportion, light, and material quality.</p>
+          <p className="hidden md:block lg:hidden pt-6 text-heading-md font-semibold text-foreground py-0">                                          I'm Wiam El Youbi. I build AI automations and custom tools that help businesses work faster — less manual work, fewer errors, and more time for the work that actually needs a human.</p>
           
           {/* Desktop text with CSS float spacer */}
-          <p className="hidden lg:block pt-0 text-heading font-semibold text-foreground">                                        RAUM was founded to create interiors that feel calm, functional, and durable. The studio works across residential and commercial projects with a strong focus on proportion, light, and material quality.</p>
+          <p className="hidden lg:block pt-0 text-heading font-semibold text-foreground">                                      I'm Wiam El Youbi. I build AI automations and custom tools that help businesses work faster — less manual work, fewer errors, and more time for the work that actually needs a human.</p>
         </motion.div>
       </div>
     </section>;

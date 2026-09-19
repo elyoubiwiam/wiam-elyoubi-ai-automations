@@ -11,8 +11,8 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-hero-sm md:text-hero-md lg:text-hero font-semibold text-foreground"
         >
-          RAUM Studio <br />
-          Landing Page
+          Wiam El Youbi <br />
+          Work Faster With AI
         </motion.h1>
         <motion.p 
           initial={{ opacity: 0, y: 30 }}
@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-subheading-sm md:text-subheading-md lg:text-subheading font-medium text-foreground max-w-[468px]"
         >
-          Command-first agency landing page
+          I build AI automations and custom tools that remove repetitive work — so your team can focus on the work that actually needs a human.
         </motion.p>
       </div>
       
@@ -31,18 +31,18 @@ const HeroSection: React.FC = () => {
         className="flex flex-wrap justify-between gap-10 mt-28 text-sm max-md:mt-10"
       >
         {[
-          { city: "Berlin", greeting: "Hallo!" },
-          { city: "Zurich", greeting: "Grüezi!" },
-          { city: "Copenhagen", greeting: "Hej!" }
-        ].map((location, i) => (
+          { label: "Focus", value: "AI Automation & Custom Tooling" },
+          { label: "Clients", value: "Teams and businesses of any size" },
+          { label: "Availability", value: "Open to new projects" }
+        ].map((item, i) => (
           <motion.div 
-            key={location.city}
+            key={item.label}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
           >
-            <div className="font-bold text-foreground">{location.city}</div>
-            <div className="font-medium text-muted-foreground">{location.greeting}</div>
+            <div className="font-bold text-foreground">{item.label}</div>
+            <div className="font-medium text-muted-foreground">{item.value}</div>
           </motion.div>
         ))}
       </motion.div>
@@ -54,8 +54,8 @@ const HeroSection: React.FC = () => {
         className="mt-6 w-full"
       >
         <img
-          src="https://api.builder.io/api/v1/image/assets/20f31d2b4c414a48ac0232fce85f1621/8900c0e32c1aae878fff7ea060f684eb58b3a22b?placeholderIfAbsent=true"
-          alt="Interior design showcase"
+          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80"
+          alt="Analytics dashboard showing automated reporting"
           className="w-full h-auto object-cover"
         />
       </motion.div>

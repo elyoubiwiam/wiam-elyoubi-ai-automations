@@ -5,16 +5,19 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
   return (
     <header ref={ref} className="relative flex w-full items-center justify-between py-4 border-b border-muted">
       {/* Logo - left */}
-      <Link to="/" className="w-[100px] md:w-[180px] lg:w-[225px] flex-shrink-0 text-foreground hover:opacity-70 transition-opacity z-10">
-        <svg viewBox="0 0 225 40" className="w-full h-auto fill-current">
-          <text x="0" y="32" className="text-[36px] font-bold tracking-tight">RAUM</text>
-        </svg>
+      <Link to="/" className="w-[120px] md:w-[220px] flex-shrink-0 text-foreground hover:opacity-70 transition-opacity z-10">
+        <span className="hidden md:inline text-[20px] lg:text-[24px] font-bold tracking-tight leading-none whitespace-nowrap">
+          WIAM EL YOUBI
+        </span>
+        <span className="md:hidden text-[20px] font-bold tracking-tight leading-none">
+          WIAM
+        </span>
       </Link>
       
       {/* Centered text - absolutely positioned to always be centered */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="text-[10px] md:text-xs lg:text-sm font-semibold text-foreground text-center">
-          Interior Architecture & Spatial Design
+          AI Automations & Custom Tools
         </div>
       </div>
       
