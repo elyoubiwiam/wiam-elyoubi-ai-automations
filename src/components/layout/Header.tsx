@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
+import logoAsset from '@/assets/wiam-logo.png.asset.json';
 
 const Header = forwardRef<HTMLElement>((_, ref) => {
   return (
