@@ -12,7 +12,7 @@
    - Vivid Royal    #0D21A1 (232 85% 34%)
    - Blush Rose     #C96480 (342 47% 59%)
 
-   Modes: .mode-light (default), .mode-dark, .mode-colorblind
+   Modes: .mode-light (default), .mode-dark
 */
 
 @layer base {
@@ -113,53 +113,6 @@
     --sidebar-ring: 46 84% 60%;
   }
 
-  /* Colour-blind safe mode — blue/yellow only, no red-green pairing,
-     all text at high contrast on white */
-  .mode-colorblind {
-    --background: 0 0% 100%;
-    --foreground: 232 45% 12%;
-
-    --muted: 210 13% 94%;
-    --muted-foreground: 232 25% 30%;
-
-    --accent: 232 60% 14%;
-    --accent-foreground: 0 0% 100%;
-    --accent-muted: 210 13% 80%;
-    --accent-border: 232 45% 26%;
-    --accent-hover: 232 60% 20%;
-
-    --secondary: 210 13% 94%;
-    --secondary-foreground: 232 45% 12%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 232 45% 12%;
-    --popover: 232 60% 14%;
-    --popover-foreground: 0 0% 100%;
-
-    --primary: 232 85% 30%;
-    --primary-foreground: 0 0% 100%;
-
-    --highlight: 46 90% 52%;
-    --highlight-foreground: 232 60% 12%;
-    --rose: 232 85% 30%;
-    --rose-foreground: 0 0% 100%;
-
-    --border: 232 20% 70%;
-    --input: 232 20% 60%;
-    --ring: 232 85% 30%;
-
-    --destructive: 232 60% 20%;
-    --destructive-foreground: 0 0% 100%;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 232 45% 12%;
-    --sidebar-primary: 232 85% 30%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 13% 94%;
-    --sidebar-accent-foreground: 232 45% 12%;
-    --sidebar-border: 232 20% 70%;
-    --sidebar-ring: 232 85% 30%;
-  }
 }
 
 @layer base {

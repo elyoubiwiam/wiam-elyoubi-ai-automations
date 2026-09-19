@@ -1,8 +1,8 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export type Theme = 'light' | 'dark' | 'colorblind';
+export type Theme = 'light' | 'dark';
 
-const THEMES: Theme[] = ['light', 'dark', 'colorblind'];
+const THEMES: Theme[] = ['light', 'dark'];
 const STORAGE_KEY = 'wey-theme';
 
 interface ThemeContextType {
@@ -29,7 +29,6 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       'mode-light',
       'mode-dark',
       'mode-colorblind',
-      // legacy classes
       'theme-neutral',
       'theme-pink',
       'theme-green',

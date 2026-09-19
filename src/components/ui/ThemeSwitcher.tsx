@@ -1,11 +1,10 @@
 import React from 'react';
-import { Sun, Moon, Eye } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { useTheme, Theme } from '@/hooks/useTheme';
 
 const modes: { id: Theme; label: string; Icon: typeof Sun }[] = [
   { id: 'light', label: 'Light mode', Icon: Sun },
   { id: 'dark', label: 'Dark mode', Icon: Moon },
-  { id: 'colorblind', label: 'Colour-blind safe mode', Icon: Eye },
 ];
 
 const ThemeSwitcher: React.FC = () => {
