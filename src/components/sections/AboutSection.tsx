@@ -25,7 +25,7 @@ const AboutSection: React.FC = () => {
         </motion.div>
       </div>
       
-      <div className="relative z-10">
+      <div className="relative z-10 pt-8 md:pt-16">
         <motion.div initial={{
         opacity: 0
       }} whileInView={{
@@ -36,22 +36,14 @@ const AboutSection: React.FC = () => {
       }} transition={{
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1]
-      }} className="flex flex-col">
-          {/* Image wrapper - responsive height */}
-          <div className="h-[412px] md:h-[515px] lg:h-[618px]">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" alt="Wiam at work" className="absolute left-0 top-[40px] w-full md:w-[343px] lg:w-[412px] h-[412px] md:h-[515px] lg:h-[618px] object-cover max-md:relative max-md:top-0" />
+      }} className="grid grid-cols-1 items-start gap-8 md:grid-cols-[minmax(260px,0.8fr)_minmax(0,1.2fr)] lg:gap-16">
+          <div className="aspect-[4/5] w-full overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&q=80" alt="Wiam at work" className="h-full w-full object-cover" />
           </div>
-          
-          {/* Mobile text - visible only on mobile */}
-          <p className="block md:hidden pt-6 text-heading-sm font-semibold text-foreground">
+
+          <p className="text-heading-sm font-semibold text-foreground md:text-heading-md lg:text-heading">
             I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.
           </p>
-          
-          {/* Tablet text - visible only on tablet */}
-          <p className="hidden md:block lg:hidden pt-6 text-heading-md font-semibold text-foreground py-0">I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.</p>
-          
-          {/* Desktop text with CSS float spacer */}
-          <p className="hidden lg:block pt-0 text-heading font-semibold text-foreground">I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.</p>
         </motion.div>
       </div>
     </section>;

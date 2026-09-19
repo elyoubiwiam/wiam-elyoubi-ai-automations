@@ -7,8 +7,7 @@ import AboutSection from '@/components/sections/AboutSection';
 import CTASection from '@/components/sections/CTASection';
 import Footer from '@/components/layout/Footer';
 import CommandMenu from '@/components/ui/CommandMenu';
-import StickyCommandButton from '@/components/ui/StickyCommandButton';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+import TopActions from '@/components/ui/TopActions';
 
 const Index: React.FC = () => {
   const [commandOpen, setCommandOpen] = useState(false);
@@ -28,8 +27,7 @@ const Index: React.FC = () => {
   return (
     <>
       <div className="min-h-screen bg-background relative z-[1] mb-[280px] md:mb-[120px]">
-        <ThemeSwitcher />
-        <StickyCommandButton onClick={() => setCommandOpen(true)} />
+        <TopActions onOpenCommandMenu={() => setCommandOpen(true)} />
         <CommandMenu open={commandOpen} onOpenChange={setCommandOpen} />
         
         <div className="max-w-[1380px] mx-auto px-6">

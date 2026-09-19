@@ -7,8 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CTASection from '@/components/sections/CTASection';
 import CommandMenu from '@/components/ui/CommandMenu';
-import StickyCommandButton from '@/components/ui/StickyCommandButton';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+import TopActions from '@/components/ui/TopActions';
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -43,8 +42,7 @@ const ProjectDetail: React.FC = () => {
   return (
     <>
       <div className="min-h-screen bg-background relative z-[1] mb-[280px] md:mb-[120px]">
-        <ThemeSwitcher />
-        <StickyCommandButton onClick={() => setCommandOpen(true)} />
+        <TopActions onOpenCommandMenu={() => setCommandOpen(true)} />
         <CommandMenu open={commandOpen} onOpenChange={setCommandOpen} />
         
         <div className="max-w-[1380px] mx-auto px-6">
