@@ -97,7 +97,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
     >
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+        className="mb-6 flex items-center gap-2 rounded-md bg-highlight px-3 py-2 text-sm font-medium text-highlight-foreground transition-opacity hover:opacity-85"
       >
         <ArrowLeft size={16} />
         Back
@@ -156,7 +156,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full flex items-center justify-center gap-2 py-2.5 bg-foreground text-background text-sm font-medium rounded-md hover:opacity-90 transition-opacity disabled:opacity-50"
+          className="flex w-full items-center justify-center gap-2 rounded-md bg-highlight py-2.5 text-sm font-medium text-highlight-foreground transition-opacity hover:opacity-85 disabled:opacity-50"
         >
           {isSubmitting ? (
             'Sending...'

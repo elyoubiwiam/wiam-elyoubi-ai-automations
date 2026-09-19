@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           </Link>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="hover:opacity-70 transition-opacity"
+            className="rounded-md bg-highlight px-3 py-2 text-highlight-foreground transition-opacity hover:opacity-85"
           >
             Back to Top
           </button>

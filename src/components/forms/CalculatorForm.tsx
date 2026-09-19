@@ -124,7 +124,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
     >
       <button
         onClick={step === 1 ? onBack : () => setStep(step - 1)}
-        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+        className="mb-6 flex items-center gap-2 rounded-md bg-highlight px-3 py-2 text-sm font-medium text-highlight-foreground transition-opacity hover:opacity-85"
       >
         <ArrowLeft size={16} />
         {step === 1 ? 'Back' : 'Previous'}
@@ -152,8 +152,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
                 onClick={() => setFormData({ ...formData, projectType: type.value as ProjectType })}
                 className={`w-full text-left p-3 rounded-md border transition-colors ${
                   formData.projectType === type.value 
-                    ? 'border-foreground bg-foreground/5' 
-                    : 'border-foreground/20 hover:border-foreground/40'
+                     ? 'border-highlight bg-highlight text-highlight-foreground' 
+                     : 'border-highlight bg-highlight text-highlight-foreground hover:opacity-85'
                 }`}
               >
                 <span className="text-sm font-medium text-foreground">{type.label}</span>
@@ -194,8 +194,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
                 onClick={() => setFormData({ ...formData, engagement: level.value as Engagement })}
                 className={`w-full text-left p-3 rounded-md border transition-colors ${
                   formData.engagement === level.value 
-                    ? 'border-foreground bg-foreground/5' 
-                    : 'border-foreground/20 hover:border-foreground/40'
+                     ? 'border-highlight bg-highlight text-highlight-foreground' 
+                     : 'border-highlight bg-highlight text-highlight-foreground hover:opacity-85'
                 }`}
               >
                 <div className="flex justify-between items-center">
@@ -247,7 +247,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
       <button
         onClick={step === 4 ? handleSubmit : handleNext}
         disabled={!canProceed() || isSubmitting}
-        className="w-full mt-6 py-2.5 bg-foreground text-background text-sm font-medium rounded-md hover:opacity-90 transition-opacity disabled:opacity-50"
+        className="mt-6 w-full rounded-md bg-highlight py-2.5 text-sm font-medium text-highlight-foreground transition-opacity hover:opacity-85 disabled:opacity-50"
       >
         {step === 4 ? (isSubmitting ? 'Sending...' : 'Send estimate') : 'Continue'}
       </button>
