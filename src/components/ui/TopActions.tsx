@@ -20,7 +20,7 @@ const TopActions: React.FC<TopActionsProps> = ({ onOpenCommandMenu }) => {
       <div
         role="group"
         aria-label="Colour mode"
-        className="flex items-center gap-1 border border-border bg-card/90 p-1 shadow-sm backdrop-blur-sm"
+        className="flex items-center gap-1 bg-transparent p-1"
       >
         {modes.map(({ id, label, Icon }) => {
           const active = theme === id;
@@ -29,13 +29,17 @@ const TopActions: React.FC<TopActionsProps> = ({ onOpenCommandMenu }) => {
             <Button
               key={id}
               type="button"
-              variant={active ? 'default' : 'ghost'}
+              variant="ghost"
               size="icon"
               onClick={() => setTheme(id)}
               aria-label={label}
               aria-pressed={active}
               title={label}
-              className="h-8 w-8 rounded-[3px]"
+              className={`h-8 w-8 rounded-[3px] ${
+                active
+                  ? 'bg-highlight text-highlight-foreground hover:bg-highlight/85'
+                  : 'bg-transparent text-foreground hover:bg-transparent hover:text-foreground'
+              }`}
             >
               <Icon className="h-4 w-4" />
             </Button>
