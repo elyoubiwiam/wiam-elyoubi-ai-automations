@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CommandMenu from '@/components/ui/CommandMenu';
-import StickyCommandButton from '@/components/ui/StickyCommandButton';
-import ThemeSwitcher from '@/components/ui/ThemeSwitcher';
+import TopActions from '@/components/ui/TopActions';
 import PageTransition from '@/components/ui/PageTransition';
 
 interface PageLayoutProps {
@@ -27,9 +26,8 @@ const PageLayout: React.FC<PageLayoutProps> = ({ children }) => {
 
   return (
     <PageTransition>
-      <div className="min-h-screen bg-background">
-        <ThemeSwitcher />
-        <StickyCommandButton onClick={() => setCommandOpen(true)} />
+      <div className="relative min-h-screen bg-background">
+        <TopActions onOpenCommandMenu={() => setCommandOpen(true)} />
         <CommandMenu open={commandOpen} onOpenChange={setCommandOpen} />
         
         <div className="max-w-[1380px] mx-auto px-6">

@@ -15,14 +15,14 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
       </Link>
       
       {/* Centered text - absolutely positioned to always be centered */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+      <div className="absolute inset-0 hidden items-center justify-center pointer-events-none md:flex">
         <div className="text-[10px] md:text-xs lg:text-sm font-semibold text-foreground text-center">
           AI Automations & Custom Tools
         </div>
       </div>
       
-      {/* Right spacer for CMD+K button */}
-      <div className="w-[40px] md:w-[68px] flex-shrink-0" />
+      {/* Right spacer for the fixed top controls */}
+      <div className="w-[168px] flex-shrink-0" />
     </header>
   );
 });
