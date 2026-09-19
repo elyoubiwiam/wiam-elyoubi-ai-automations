@@ -3,7 +3,7 @@ import { Command as CommandPrimitive } from 'cmdk';
 import { Dialog, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
 import { Calculator, Users, Info, Home, Briefcase, Mail, Search } from 'lucide-react';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
-import { AnimatePresence } from 'framer-motion';
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useNavigate } from 'react-router-dom';
 import ContactForm from '@/components/forms/ContactForm';
 import CalculatorForm from '@/components/forms/CalculatorForm';
@@ -129,7 +129,7 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
           className="fixed left-[50%] top-[50%] z-50 w-full max-w-[350px] md:max-w-[540px] translate-x-[-50%] translate-y-[-50%] duration-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95"
         >
           <div className="flex flex-col overflow-hidden rounded-lg bg-background border border-foreground/20">
-            <AnimatePresence mode="wait">
+            <>
               {view === 'main' && (
                 <CommandPrimitive
                   key="main"
@@ -208,7 +208,7 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
               {view === 'contact' && (
                 <ContactForm key="contact" onBack={handleBack} onClose={handleClose} />
               )}
-            </AnimatePresence>
+            </>
           </div>
         </DialogPrimitive.Content>
       </DialogPortal>
