@@ -156,8 +156,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
                      : 'border-highlight bg-highlight text-highlight-foreground hover:opacity-85'
                 }`}
               >
-                <span className="text-sm font-medium text-foreground">{type.label}</span>
-                <p className="text-xs text-muted-foreground">{type.description}</p>
+                <span className="text-sm font-medium text-highlight-foreground">{type.label}</span>
+                <p className="text-xs text-highlight-foreground/75">{type.description}</p>
               </button>
             ))}
           </div>
@@ -199,10 +199,10 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
                 }`}
               >
                 <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-foreground">{level.label}</span>
-                  <span className="text-xs text-muted-foreground">~€{level.multiplier}/system</span>
+                  <span className="text-sm font-medium text-highlight-foreground">{level.label}</span>
+                  <span className="text-xs text-highlight-foreground/75">~€{level.multiplier}/system</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{level.description}</p>
+                <p className="text-xs text-highlight-foreground/75">{level.description}</p>
               </button>
             ))}
           </div>
