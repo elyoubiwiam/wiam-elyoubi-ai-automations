@@ -37,8 +37,8 @@ const TopActions: React.FC<TopActionsProps> = ({ onOpenCommandMenu }) => {
               title={label}
               className={`h-8 w-8 rounded-[3px] ${
                 active
-                  ? 'bg-highlight text-highlight-foreground hover:bg-highlight/85'
-                  : 'bg-transparent text-foreground hover:bg-transparent hover:text-foreground'
+                  ? '!bg-highlight !text-highlight-foreground hover:!bg-highlight/85'
+                  : '!bg-transparent !text-foreground hover:!bg-transparent hover:!text-foreground'
               }`}
             >
               <Icon className="h-4 w-4" />
