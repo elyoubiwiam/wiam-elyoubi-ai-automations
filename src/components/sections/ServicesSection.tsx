@@ -75,6 +75,12 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
     };
   }, [api, updateSelectedSlide]);
 
+  useEffect(() => {
+    if (!api || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const timer = window.setInterval(() => api.scrollNext(), 5000);
+    return () => window.clearInterval(timer);
+  }, [api]);
+
   return (
     <section id="services" className="relative w-full py-24">
       {/* Background text */}
@@ -98,7 +104,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
           </h2>
         </AnimatedSection>
 
-        <Carousel setApi={setApi} opts={{ align: 'start' }} aria-label="Services">
+        <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} aria-label="Services">
           <CarouselContent className="-ml-0">
             {services.map((service, index) => (
               <CarouselItem key={service.letter} className="pl-0">
@@ -146,10 +152,8 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
             </span>
             <Button
               type="button"
-              variant="outline"
               size="icon"
               onClick={() => api?.scrollPrev()}
-              disabled={!api?.canScrollPrev()}
               aria-label="Previous service"
               className="rounded-[3px]"
             >
@@ -157,10 +161,8 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
             </Button>
             <Button
               type="button"
-              variant="outline"
               size="icon"
               onClick={() => api?.scrollNext()}
-              disabled={!api?.canScrollNext()}
               aria-label="Next service"
               className="rounded-[3px]"
             >

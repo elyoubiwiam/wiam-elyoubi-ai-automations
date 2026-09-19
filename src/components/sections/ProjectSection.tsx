@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
+import { Button } from '@/components/ui/button';
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 import { projects } from '@/lib/projects';
 
 interface ProjectCardProps {
@@ -51,6 +59,32 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location,
 );
 
 const ProjectSection: React.FC = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const updateSelectedSlide = useCallback((carouselApi: CarouselApi) => {
+    if (!carouselApi) return;
+    setActiveIndex(carouselApi.selectedScrollSnap());
+  }, []);
+
+  useEffect(() => {
+    if (!api) return;
+    updateSelectedSlide(api);
+    api.on('select', updateSelectedSlide);
+    api.on('reInit', updateSelectedSlide);
+
+    return () => {
+      api.off('select', updateSelectedSlide);
+      api.off('reInit', updateSelectedSlide);
+    };
+  }, [api, updateSelectedSlide]);
+
+  useEffect(() => {
+    if (!api || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const timer = window.setInterval(() => api.scrollNext(), 5000);
+    return () => window.clearInterval(timer);
+  }, [api]);
+
   return (
     <section id="projects" className="relative w-full py-16">
       {/* Background text */}
@@ -76,10 +110,11 @@ const ProjectSection: React.FC = () => {
 
         <h3 className="mb-6 mt-11 text-sm font-semibold text-foreground">Projects</h3>
 
-        <div className="grid grid-cols-1 gap-x-16 gap-y-8 md:grid-cols-2">
-              {projects.map((project, index) => (
+        <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} aria-label="Projects">
+          <CarouselContent className="-ml-6 md:-ml-16">
+            {projects.map((project, index) => (
+              <CarouselItem key={project.slug} className="pl-6 md:basis-1/2 md:pl-16">
                 <ProjectCard 
-                  key={project.slug} 
                   slug={project.slug}
                   image={project.image}
                   title={project.title}
@@ -88,8 +123,21 @@ const ProjectSection: React.FC = () => {
                   description={project.description}
                   index={index} 
                 />
-              ))}
-        </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <div className="mt-7 flex items-center justify-end gap-3">
+            <span className="mr-auto text-sm font-semibold text-muted-foreground" aria-live="polite">
+              {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+            </span>
+            <Button type="button" size="icon" onClick={() => api?.scrollPrev()} aria-label="Previous project" className="rounded-[3px]">
+              <ArrowLeft />
+            </Button>
+            <Button type="button" size="icon" onClick={() => api?.scrollNext()} aria-label="Next project" className="rounded-[3px]">
+              <ArrowRight />
+            </Button>
+          </div>
+        </Carousel>
       </div>
     </section>
   );
