@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Command } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface CTASectionProps {
   onOpenCommandMenu?: () => void;
@@ -23,20 +23,20 @@ const CTASection: React.FC<CTASectionProps> = ({ onOpenCommandMenu }) => {
           Tell me what slows your team down, and I'll show you what automation can take off your plate.
         </p>
         
-        <motion.button 
+        <Button
+          asChild
+          className="mt-8 rounded-[4px]"
+        >
+          <motion.button 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
           onClick={onOpenCommandMenu}
-          className="flex items-center gap-1 mt-8 px-3 py-2 bg-foreground text-background text-sm font-medium rounded-[4px] hover:opacity-80 transition-opacity"
-        >
-          {/* Mobile/Tablet: Show "Get started" text */}
-          <span className="lg:hidden">Get started</span>
-          {/* Desktop: Show CMD+K */}
-          <Command size={14} className="hidden lg:block" />
-          <span className="hidden lg:inline">+ K</span>
-        </motion.button>
+          >
+            Get in touch
+          </motion.button>
+        </Button>
       </motion.div>
     </section>
   );
