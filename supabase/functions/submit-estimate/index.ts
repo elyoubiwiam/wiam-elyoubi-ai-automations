@@ -5,9 +5,9 @@ import { getClientIp, isRateLimited } from '../_shared/rateLimit.ts';
 
 const BodySchema = z.object({
   email: z.string().trim().email().max(255),
-  projectType: z.enum(['residential', 'commercial', 'hospitality']),
-  area: z.number().positive().max(1000000),
-  serviceLevel: z.enum(['consulting', 'design', 'full']),
+  projectType: z.enum(['workflow', 'tool', 'ai']),
+  systems: z.number().positive().max(1000),
+  engagement: z.enum(['build', 'advise', 'support']),
   estimate: z.number().nonnegative().max(1000000000),
 });
 
@@ -44,7 +44,7 @@ Deno.serve(async (req) => {
       return json({ error: 'Invalid input', fields: parsed.error.flatten().fieldErrors }, 400);
     }
 
-    const { email, projectType, area, serviceLevel, estimate } = parsed.data;
+    const { email, projectType, systems, engagement, estimate } = parsed.data;
 
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL')!,
@@ -54,8 +54,8 @@ Deno.serve(async (req) => {
     const { error } = await supabase.from('estimate_requests').insert({
       email,
       project_type: projectType,
-      area,
-      service_level: serviceLevel,
+      systems,
+      engagement,
       estimate,
     });
 

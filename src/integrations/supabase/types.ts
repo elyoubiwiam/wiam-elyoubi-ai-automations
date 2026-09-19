@@ -40,31 +40,37 @@ export type Database = {
       }
       estimate_requests: {
         Row: {
-          area: number
+          area: number | null
           created_at: string
           email: string
+          engagement: string | null
           estimate: number
           id: string
           project_type: string
-          service_level: string
+          service_level: string | null
+          systems: number | null
         }
         Insert: {
-          area: number
+          area?: number | null
           created_at?: string
           email: string
+          engagement?: string | null
           estimate: number
           id?: string
           project_type: string
-          service_level: string
+          service_level?: string | null
+          systems?: number | null
         }
         Update: {
-          area?: number
+          area?: number | null
           created_at?: string
           email?: string
+          engagement?: string | null
           estimate?: number
           id?: string
           project_type?: string
-          service_level?: string
+          service_level?: string | null
+          systems?: number | null
         }
         Relationships: []
       }
