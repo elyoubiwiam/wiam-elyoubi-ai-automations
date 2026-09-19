@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
-import logoAsset from '@/assets/wiam-logo.png.asset.json';
+import logoUrl from '@/assets/wiam-logo.png';
 
 const Header = forwardRef<HTMLElement>((_, ref) => {
   return (
@@ -8,7 +8,7 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
       {/* Logo - left */}
       <Link to="/" className="w-[120px] md:w-[220px] flex-shrink-0 hover:opacity-70 transition-opacity z-10">
         <img
-          src={logoAsset.url}
+          src={logoUrl}
           alt="Wiam El Youbi"
           className="h-8 md:h-10 w-auto dark:invert"
         />
