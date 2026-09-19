@@ -11,7 +11,6 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-hero-sm md:text-hero-md lg:text-hero font-semibold text-foreground"
         >
-          Wiam El Youbi <br />
           Work Faster With AI
         </motion.h1>
         <motion.p 
@@ -20,7 +19,7 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
           className="text-subheading-sm md:text-subheading-md lg:text-subheading font-medium text-foreground max-w-[468px]"
         >
-          I build AI automations and custom tools that remove repetitive work — so your team can focus on the work that actually needs a human.
+          I build AI automations and custom tools that remove repetitive work, so your team focuses on the work that actually needs a human.
         </motion.p>
       </div>
       
