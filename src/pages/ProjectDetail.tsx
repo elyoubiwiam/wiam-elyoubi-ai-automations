@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProjectBySlug } from '@/lib/projects';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
