@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import AnimatedSection from '@/components/ui/AnimatedSection';
@@ -25,6 +25,7 @@ interface ServicesSectionProps {
 const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
+  const isImageHovered = useRef(false);
 
   const services: Service[] = [
     { 
@@ -77,7 +78,9 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
 
   useEffect(() => {
     if (!api || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const timer = window.setInterval(() => api.scrollNext(), 5000);
+    const timer = window.setInterval(() => {
+      if (!isImageHovered.current) api.scrollNext();
+    }, 5000);
     return () => window.clearInterval(timer);
   }, [api]);
 
@@ -109,11 +112,19 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
             {services.map((service, index) => (
               <CarouselItem key={service.letter} className="pl-0">
                 <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-                  <div className="aspect-[4/5] overflow-hidden md:aspect-[4/5]">
+                   <div
+                     className="group aspect-[4/5] overflow-hidden md:aspect-[4/5]"
+                     onMouseEnter={() => {
+                       isImageHovered.current = true;
+                     }}
+                     onMouseLeave={() => {
+                       isImageHovered.current = false;
+                     }}
+                   >
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="h-full w-full object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
 

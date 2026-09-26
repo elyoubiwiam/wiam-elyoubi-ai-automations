@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -20,9 +20,10 @@ interface ProjectCardProps {
   year: string;
   description: string;
   index: number;
+  onImageHoverChange: (isHovered: boolean) => void;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location, year, description, index }) => (
+const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location, year, description, index, onImageHoverChange }) => (
   <Link to={`/project/${slug}`}>
     <motion.article 
       layout
@@ -40,11 +41,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location,
       <motion.div
         layout
         className="group aspect-[1.59] w-full overflow-hidden"
+        onMouseEnter={() => onImageHoverChange(true)}
+        onMouseLeave={() => onImageHoverChange(false)}
       >
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-300 ease-out"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
         />
       </motion.div>
       <motion.div layout className="mt-4 flex justify-between gap-4">
@@ -61,6 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location,
 const ProjectSection: React.FC = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
+  const isImageHovered = useRef(false);
 
   const updateSelectedSlide = useCallback((carouselApi: CarouselApi) => {
     if (!carouselApi) return;
@@ -81,7 +85,9 @@ const ProjectSection: React.FC = () => {
 
   useEffect(() => {
     if (!api || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const timer = window.setInterval(() => api.scrollNext(), 5000);
+    const timer = window.setInterval(() => {
+      if (!isImageHovered.current) api.scrollNext();
+    }, 5000);
     return () => window.clearInterval(timer);
   }, [api]);
 
@@ -122,6 +128,9 @@ const ProjectSection: React.FC = () => {
                   year={project.year}
                   description={project.description}
                   index={index} 
+                   onImageHoverChange={(isHovered) => {
+                     isImageHovered.current = isHovered;
+                   }}
                 />
               </CarouselItem>
             ))}
