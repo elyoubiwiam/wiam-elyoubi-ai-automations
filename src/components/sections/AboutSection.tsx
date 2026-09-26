@@ -17,7 +17,7 @@ const AboutSection: React.FC = () => {
       }} transition={{
         duration: 1,
         ease: [0.25, 0.1, 0.25, 1]
-      }} className="relative text-center text-display-sm md:text-display-md lg:text-display font-semibold leading-none whitespace-nowrap" style={{
+       }} className="relative w-full whitespace-nowrap text-center text-[clamp(3rem,14vw,13rem)] font-semibold leading-none" style={{
         background: 'linear-gradient(to bottom, hsl(var(--foreground) / 0.1), transparent)',
         WebkitBackgroundClip: 'text',
         WebkitTextFillColor: 'transparent',
