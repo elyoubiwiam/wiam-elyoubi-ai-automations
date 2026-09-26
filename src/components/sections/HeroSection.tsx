@@ -50,12 +50,12 @@ const HeroSection: React.FC = () => {
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className="mt-6 w-full"
+        className="group mt-6 w-full overflow-hidden"
       >
         <img
           src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80"
           alt="Analytics dashboard showing automated reporting"
-          className="w-full h-auto object-cover"
+          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </motion.div>
     </section>

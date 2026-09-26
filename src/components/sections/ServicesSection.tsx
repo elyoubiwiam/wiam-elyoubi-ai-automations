@@ -25,6 +25,7 @@ interface ServicesSectionProps {
 const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isImageHovered, setIsImageHovered] = useState(false);
 
   const services: Service[] = [
     { 
@@ -76,10 +77,10 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
   }, [api, updateSelectedSlide]);
 
   useEffect(() => {
-    if (!api || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!api || isImageHovered || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = window.setInterval(() => api.scrollNext(), 5000);
     return () => window.clearInterval(timer);
-  }, [api]);
+  }, [api, isImageHovered]);
 
   return (
     <section id="services" className="relative w-full py-24">
@@ -109,11 +110,15 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
             {services.map((service, index) => (
               <CarouselItem key={service.letter} className="pl-0">
                 <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-                  <div className="aspect-[4/5] overflow-hidden md:aspect-[4/5]">
+                   <div
+                     className="group aspect-[4/5] overflow-hidden md:aspect-[4/5]"
+                     onMouseEnter={() => setIsImageHovered(true)}
+                     onMouseLeave={() => setIsImageHovered(false)}
+                   >
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="h-full w-full object-cover grayscale transition-all duration-500 hover:scale-105 hover:grayscale-0"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
 

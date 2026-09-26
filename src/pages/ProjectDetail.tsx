@@ -85,7 +85,7 @@ const ProjectDetail: React.FC = () => {
                 <img 
                   src={project.image} 
                   alt={project.title}
-                  className="w-full aspect-[21/9] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+                  className="w-full aspect-[21/9] object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                 />
               </div>
             </motion.div>
@@ -181,7 +181,7 @@ const ProjectDetail: React.FC = () => {
                     <img
                       src={image}
                       alt={`${project.title} gallery ${index + 1}`}
-                      className="w-full aspect-[4/3] object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out"
+                      className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
                   </div>
                 ))}
