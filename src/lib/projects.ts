@@ -2,6 +2,7 @@ import uxAuditHome from "@/assets/ux-audit-home.jpg";
 import uxAuditHow from "@/assets/ux-audit-how.jpg";
 import uxAuditCases from "@/assets/ux-audit-cases.jpg";
 import uxAuditForm from "@/assets/ux-audit-form.jpg";
+import uxAuditExample from "@/assets/ux-audit-example.png";
 
 export interface Project {
   slug: string;
@@ -19,6 +20,9 @@ export interface Project {
   outcome: string;
   gallery: string[];
   liveUrl?: string;
+  exampleImage?: string;
+  exampleTitle?: string;
+  exampleText?: string;
 }
 
 // Placeholder projects — replace the entries below with real case studies.
@@ -38,7 +42,10 @@ export const projects: Project[] = [
     challenge: "Founders and marketers can see that a page converts, but not why. Understanding the psychology behind a landing page normally means paying for a specialist review, waiting days for it, and reading a report full of jargon. Most teams skip it and guess instead.",
     approach: "I built a tool that does the read in about a minute. You paste a URL and a line about the business, the tool checks the site's scanning rules, reads the copy, buttons and signals a visitor actually sees, then explains the persuasion techniques in use across thirteen categories — urgency, social proof, authority, risk reversal, pricing psychology, friction and more. Every finding is written in plain language with a note on how well it lands. No account, no plugin, no setup.",
     outcome: "A free, public tool that turns a specialist audit into a one-minute answer. It is used to check your own page, study a competitor's, and learn conversion patterns from real pages rather than textbooks — and it names the techniques honestly instead of pushing dark patterns.",
-    gallery: [uxAuditHow, uxAuditForm, uxAuditCases]
+    gallery: [uxAuditHow, uxAuditForm, uxAuditCases],
+    exampleImage: uxAuditExample,
+    exampleTitle: "A real example",
+    exampleText: "This is the tool's read of a real e-commerce search-results page. It opens with a plain-language summary, then breaks down each persuasion technique it found — social proof, herd behaviour and more — quoting the exact copy on the page that triggers it, with a note on how well each one lands."
   },
   {
     slug: "internal-ops-dashboard",
