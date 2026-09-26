@@ -10,7 +10,7 @@ const Header = forwardRef<HTMLElement>((_, ref) => {
         <img
           src={logoUrl}
           alt="Wiam El Youbi"
-          className="h-8 md:h-10 w-auto dark:invert"
+          className="h-8 md:h-10 w-auto dark:brightness-0 dark:invert"
         />
       </Link>
       
