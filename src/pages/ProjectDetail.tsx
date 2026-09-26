@@ -197,6 +197,34 @@ const ProjectDetail: React.FC = () => {
             >
               <h2 className="text-2xl font-semibold text-foreground mb-4">The Outcome</h2>
               <p className="text-sm text-muted-foreground leading-relaxed">{project.outcome}</p>
+
+              {project.exampleImage && (
+                <div className="mt-10">
+                  <h3 className="text-lg font-semibold text-foreground mb-2">{project.exampleTitle}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{project.exampleText}</p>
+                  <div className="overflow-hidden rounded-lg border border-muted">
+                    <img
+                      src={project.exampleImage}
+                      alt={`Example result from ${project.title}`}
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+              )}
+
+              {project.liveUrl && (
+                <div className="mt-10">
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-highlight text-highlight-foreground rounded-full transition-all hover:-translate-y-0.5 hover:shadow-md"
+                  >
+                    Test the tool with your own page
+                    <ExternalLink size={15} />
+                  </a>
+                </div>
+              )}
             </motion.div>
 
             <CTASection onOpenCommandMenu={() => setCommandOpen(true)} />
