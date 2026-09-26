@@ -1,3 +1,8 @@
+import uxAuditHome from "@/assets/ux-audit-home.jpg";
+import uxAuditHow from "@/assets/ux-audit-how.jpg";
+import uxAuditCases from "@/assets/ux-audit-cases.jpg";
+import uxAuditForm from "@/assets/ux-audit-form.jpg";
+
 export interface Project {
   slug: string;
   image: string;
@@ -13,29 +18,27 @@ export interface Project {
   approach: string;
   outcome: string;
   gallery: string[];
+  liveUrl?: string;
 }
 
 // Placeholder projects — replace the entries below with real case studies.
 export const projects: Project[] = [
   {
-    slug: "lead-to-crm-automation",
-    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
-    title: "Lead-to-CRM Automation",
-    location: "B2B Sales Team",
+    slug: "ux-audit-tool",
+    image: uxAuditHome,
+    title: "UX Audit",
+    location: "Public Web Tool",
     year: "2026",
-    description: "New leads reach the CRM enriched and assigned — without anyone touching a spreadsheet.",
-    category: "Automation / Workflow",
-    stack: "n8n, HubSpot API, Clearbit, Slack",
-    duration: "3 weeks",
-    services: ["Process Mapping", "Workflow Automation", "CRM Integration"],
-    challenge: "A B2B sales team was copying every inbound lead from web forms and inboxes into their CRM by hand. Leads sat unworked for hours, enrichment never happened, and follow-up depended on whoever noticed the new entry first.",
-    approach: "I mapped the lead journey end to end, then automated it: form and inbox submissions flow straight into the CRM, each lead is enriched with company data, scored, and assigned to the right rep, and Slack notifications fire the moment a high-value lead lands. Nothing is copied by hand anymore.",
-    outcome: "Response time to new leads dropped from hours to minutes. No lead is lost between tools, and the team stopped spending their mornings on data entry. The workflow has run without maintenance since launch.",
-    gallery: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80",
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
-    ]
+    description: "Paste any landing page URL and see the persuasion techniques it uses, in plain language.",
+    category: "Custom Tool / AI",
+    stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
+    duration: "2 weeks",
+    services: ["Product Design", "Full-Stack Development", "AI Integration", "Behavioural Analysis"],
+    liveUrl: "https://audit-the-ux.lovable.app",
+    challenge: "Founders and marketers can see that a page converts, but not why. Understanding the psychology behind a landing page normally means paying for a specialist review, waiting days for it, and reading a report full of jargon. Most teams skip it and guess instead.",
+    approach: "I built a tool that does the read in about a minute. You paste a URL and a line about the business, the tool checks the site's scanning rules, reads the copy, buttons and signals a visitor actually sees, then explains the persuasion techniques in use across thirteen categories — urgency, social proof, authority, risk reversal, pricing psychology, friction and more. Every finding is written in plain language with a note on how well it lands. No account, no plugin, no setup.",
+    outcome: "A free, public tool that turns a specialist audit into a one-minute answer. It is used to check your own page, study a competitor's, and learn conversion patterns from real pages rather than textbooks — and it names the techniques honestly instead of pushing dark patterns.",
+    gallery: [uxAuditHow, uxAuditForm, uxAuditCases]
   },
   {
     slug: "internal-ops-dashboard",

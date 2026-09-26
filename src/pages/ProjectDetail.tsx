@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProjectBySlug } from '@/lib/projects';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -133,6 +133,18 @@ const ProjectDetail: React.FC = () => {
                   </span>
                 ))}
               </div>
+
+              {project.liveUrl && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-6 px-5 py-2.5 text-sm font-medium bg-highlight text-highlight-foreground rounded-full transition-all hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  Try the live tool
+                  <ExternalLink size={15} />
+                </a>
+              )}
             </motion.div>
 
             {/* Case Study Content */}
