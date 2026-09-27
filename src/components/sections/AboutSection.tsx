@@ -44,7 +44,7 @@ const AboutSection: React.FC = () => {
           </div>
 
           <p className="text-heading-sm font-semibold text-foreground md:text-heading-md lg:text-heading">
-            I'm Wiam El Youbi. With a background in Marketing, Web Development and Cyberpsychology, I build AI automations and custom tools that help businesses work faster, and more efficiently.
+            I'm Wiam El Youbi. My background spans marketing, web development and cyberpsychology. I build AI automations and custom tools that help businesses work faster and more efficiently.
           </p>
         </motion.div>
       </div>

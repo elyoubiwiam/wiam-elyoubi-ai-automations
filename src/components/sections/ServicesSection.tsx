@@ -32,28 +32,28 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
       letter: "A", 
       title: "Workflow Automation", 
       shortDescription: "Connect your tools so data moves without manual steps.",
-      fullDescription: "I map how information moves through your business, then automate the handoffs. Quotes, onboarding, reporting, follow-ups — anything that gets copied from one tool to another is a candidate. The result is fewer errors and hours back every week.",
+      fullDescription: "I map how information moves through your business, then automate the manual handoffs. This can include quotes, onboarding, reporting and follow-ups. The result is fewer errors and less time spent copying data between tools.",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80"
     },
     { 
       letter: "B", 
       title: "Custom Internal Tools", 
       shortDescription: "Software built around how your team actually works.",
-      fullDescription: "Off-the-shelf software forces your process into someone else's template. I build lean internal tools that match your workflow exactly — dashboards, trackers, admin panels — without the features nobody uses.",
+      fullDescription: "Standard software often forces your process into a fixed template. I build focused internal tools, including dashboards, trackers and admin panels, around the way your team works.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80"
     },
     { 
       letter: "C", 
       title: "AI Integrations", 
-      shortDescription: "Put AI models to work on real operational tasks.",
-      fullDescription: "AI is only useful when it's wired into your actual process. I integrate language models into the tools you already use to draft documents, sort incoming requests, summarize threads, and answer routine questions — with humans still in control.",
+      shortDescription: "Use AI for specific operational tasks.",
+      fullDescription: "I integrate language models into your existing tools to draft documents, sort requests, summarise conversations and answer routine questions. Your team reviews the work and stays in control.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80"
     },
     { 
       letter: "D", 
       title: "Automation Consulting", 
       shortDescription: "Know what's worth automating before you spend on it.",
-      fullDescription: "Not every process should be automated. I review how your team works, identify where automation will actually pay off, and give you a prioritized plan you can act on — with or without me.",
+      fullDescription: "Not every process should be automated. I review how your team works, identify where automation will save time or reduce errors, and provide a prioritised plan you can use with or without me.",
       image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80"
     }
   ];
@@ -103,7 +103,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenCommandMenu }) 
         {/* Title - top left */}
         <AnimatedSection className="max-w-[420px] mb-12">
           <h2 className="text-subheading-sm md:text-subheading-md lg:text-subheading font-medium text-foreground">
-            From first audit to a working system. Automations and tools built to cut repetitive work.
+            I review your process, identify what to automate and build the system your team needs.
           </h2>
         </AnimatedSection>
 
