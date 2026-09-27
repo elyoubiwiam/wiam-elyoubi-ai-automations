@@ -206,13 +206,19 @@ const ProjectDetail: React.FC = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {project.gallery.map((image, index) => (
-                  <div key={index} className="overflow-hidden group">
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => openLightbox(image, `${project.title} use case ${index + 1}`)}
+                    aria-label={`Enlarge use case ${index + 1}`}
+                    className="block w-full overflow-hidden group cursor-zoom-in text-left"
+                  >
                     <img
                       src={image}
-                      alt={`${project.title} gallery ${index + 1}`}
+                      alt={`${project.title} use case ${index + 1}`}
                       className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </motion.div>
