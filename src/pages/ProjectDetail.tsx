@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ExternalLink, X } from 'lucide-react';
 import { getProjectBySlug } from '@/lib/projects';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -13,6 +13,35 @@ const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug || '');
   const [commandOpen, setCommandOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxAlt, setLightboxAlt] = useState('');
+
+  const openLightbox = useCallback((image: string, alt: string) => {
+    setLightboxImage(image);
+    setLightboxAlt(alt);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxImage(null);
+    setLightboxAlt('');
+  }, []);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightboxImage]);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxImage, closeLightbox]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -177,13 +206,19 @@ const ProjectDetail: React.FC = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {project.gallery.map((image, index) => (
-                  <div key={index} className="overflow-hidden group">
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => openLightbox(image, `${project.title} use case ${index + 1}`)}
+                    aria-label={`Enlarge use case ${index + 1}`}
+                    className="block w-full overflow-hidden group cursor-zoom-in text-left"
+                  >
                     <img
                       src={image}
-                      alt={`${project.title} gallery ${index + 1}`}
+                      alt={`${project.title} use case ${index + 1}`}
                       className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                     />
-                  </div>
+                  </button>
                 ))}
               </div>
             </motion.div>
@@ -202,13 +237,18 @@ const ProjectDetail: React.FC = () => {
                 <div className="mt-10">
                   <h3 className="text-lg font-semibold text-foreground mb-2">{project.exampleTitle}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">{project.exampleText}</p>
-                  <div className="overflow-hidden rounded-lg border border-muted">
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(project.exampleImage, `Example result from ${project.title}`)}
+                    aria-label="Enlarge example result"
+                    className="block w-full overflow-hidden rounded-lg border border-muted cursor-zoom-in"
+                  >
                     <img
                       src={project.exampleImage}
                       alt={`Example result from ${project.title}`}
                       className="w-full"
                     />
-                  </div>
+                  </button>
                 </div>
               )}
 
@@ -232,6 +272,40 @@ const ProjectDetail: React.FC = () => {
         </div>
       </div>
       <Footer />
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-background/95 backdrop-blur-sm"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightboxAlt}
+          >
+            <motion.img
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              src={lightboxImage}
+              alt={lightboxAlt}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
+            />
+            <button
+              type="button"
+              onClick={closeLightbox}
+              aria-label="Close enlarged image"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 inline-flex items-center justify-center w-11 h-11 rounded-full bg-highlight text-highlight-foreground transition-all hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <X size={20} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
