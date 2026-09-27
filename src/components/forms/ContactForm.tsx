@@ -144,7 +144,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
             id="contact-message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            placeholder="Tell me about your project..."
+            placeholder="Tell me about your project"
             rows={4}
             maxLength={2000}
             aria-invalid={!!errors.message}
@@ -159,7 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
           className="flex w-full items-center justify-center gap-2 rounded-md bg-highlight py-2.5 text-sm font-medium text-highlight-foreground transition-opacity hover:opacity-85 disabled:opacity-50"
         >
           {isSubmitting ? (
-            'Sending...'
+              'Sending'
           ) : (
             <>
               Send message

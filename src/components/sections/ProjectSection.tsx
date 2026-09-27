@@ -109,8 +109,7 @@ const ProjectSection: React.FC = () => {
       <div className="relative z-10">
         <AnimatedSection>
           <h2 className="text-heading-sm md:text-heading-md lg:text-heading font-semibold text-foreground">
-            Selected projects showing how automation removes manual work
-            and speeds up day-to-day operations.
+            Selected projects that reduce manual work and improve day-to-day operations.
           </h2>
         </AnimatedSection>
 

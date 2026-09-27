@@ -20,7 +20,7 @@ const CTASection: React.FC<CTASectionProps> = ({ onOpenCommandMenu }) => {
           Ready to get started?
         </h2>
         <p className="text-sm text-muted-foreground leading-[21px] max-w-[280px] mt-2">
-          Tell me what slows your team down, and I'll show you what automation can take off your plate.
+          Tell me what slows your team down. I'll identify where automation can save time or reduce errors.
         </p>
         
         <Button

@@ -25,7 +25,7 @@ export interface Project {
   exampleText?: string;
 }
 
-// Placeholder projects — replace the entries below with real case studies.
+// Placeholder projects. Replace the entries below with real case studies.
 export const projects: Project[] = [
   {
     slug: "ux-audit-tool",
@@ -39,13 +39,13 @@ export const projects: Project[] = [
     duration: "2 weeks",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "Behavioural Analysis"],
     liveUrl: "https://audit-the-ux.lovable.app",
-    challenge: "Founders and marketers can see that a page converts, but not why. Understanding the psychology behind a landing page normally means paying for a specialist review, waiting days for it, and reading a report full of jargon. Most teams skip it and guess instead.",
-    approach: "I built a tool that does the read in about a minute. You paste a URL and a line about the business, the tool checks the site's scanning rules, reads the copy, buttons and signals a visitor actually sees, then explains the persuasion techniques in use across thirteen categories — urgency, social proof, authority, risk reversal, pricing psychology, friction and more. Every finding is written in plain language with a note on how well it lands. No account, no plugin, no setup.",
-    outcome: "A free, public tool that turns a specialist audit into a one-minute answer. It is used to check your own page, study a competitor's, and learn conversion patterns from real pages rather than textbooks — and it names the techniques honestly instead of pushing dark patterns.",
+    challenge: "Founders and marketers often know that a page converts without knowing which elements influence visitors. A specialist review can be expensive, slow and difficult to understand, so many teams rely on guesswork.",
+    approach: "I built a tool that analyses a page in about a minute. The user enters a URL and a short business description. The tool checks whether the site allows scanning, then reviews the visible copy, buttons and trust signals. It explains the persuasion techniques it finds across thirteen categories, including urgency, social proof, authority, risk reversal, pricing psychology and friction. Each finding uses plain language and includes an assessment of how effectively the page applies it. No account or plugin is required.",
+    outcome: "The result is a free public tool for reviewing your own page, comparing a competitor's page and studying conversion techniques used on live websites. It also identifies manipulative patterns instead of recommending them.",
     gallery: [uxAuditHow, uxAuditForm, uxAuditCases],
     exampleImage: uxAuditExample,
     exampleTitle: "A real example",
-    exampleText: "This is the tool's read of a real e-commerce search-results page. It opens with a plain-language summary, then breaks down each persuasion technique it found — social proof, herd behaviour and more — quoting the exact copy on the page that triggers it, with a note on how well each one lands."
+    exampleText: "This example shows an analysis of an e-commerce search results page. It starts with a clear summary, then explains each persuasion technique it found, including social proof and herd behaviour. It quotes the relevant page copy and assesses how effectively each technique is used."
   },
   {
     slug: "internal-ops-dashboard",
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     stack: "React, Supabase, PostgreSQL",
     duration: "5 weeks",
     services: ["Requirements Workshops", "Full-Stack Development", "Data Modeling"],
-    challenge: "An operations team spent hours every week pulling numbers from five different sources into a single report. By the time it was ready, the data was already stale — and any question outside the report meant starting over.",
+    challenge: "An operations team spent hours each week pulling numbers from five sources into one report. The data was often out of date by the time the report was ready, and new questions required more manual work.",
     approach: "I consolidated the sources into a single database and built a dashboard that updates in real time. Every metric from the weekly report became a live view, with filters for the questions the team actually asks. The manual report was retired entirely.",
     outcome: "The weekly report went from half a day of manual work to zero. The team now answers data questions live instead of scheduling them for next week's report.",
     gallery: [
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     duration: "4 weeks",
     services: ["AI Integration", "Prompt Design", "Process Automation"],
     challenge: "A back-office team spent most of its day drafting routine documents from templates and sorting incoming requests into the right categories. The work was repetitive but required just enough judgment that nobody trusted a simple script with it.",
-    approach: "I integrated a language model into their existing workspace setup. Incoming requests are classified and routed automatically, and first drafts of routine documents are generated from templates and past cases — every draft lands with a human for review before anything is sent.",
+    approach: "I integrated a language model into the team's existing workspace. It classifies and routes incoming requests, then prepares first drafts of routine documents from approved templates and past cases. A team member reviews every draft before it is sent.",
     outcome: "Document drafting time dropped by more than half, and misrouted requests are nearly gone. The team reviews instead of writes, and the review step keeps quality under control.",
     gallery: [
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",

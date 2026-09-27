@@ -114,8 +114,8 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
       }
 
       toast({
-        title: 'Estimate sent!',
-        description: "I've received your request and will email the detailed breakdown.",
+        title: 'Estimate submitted',
+        description: "I've received your project details.",
       });
       onClose();
     } catch (err) {
@@ -248,7 +248,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
             </p>
           </div>
 
-          <p className="text-sm text-muted-foreground mb-3">Get a detailed breakdown via email</p>
+          <p className="text-sm text-muted-foreground mb-3">Enter your email to submit your estimate</p>
           <Input
             type="email"
             value={formData.email}
@@ -271,7 +271,7 @@ const CalculatorForm: React.FC<CalculatorFormProps> = ({ onBack, onClose }) => {
         disabled={!canProceed() || isSubmitting}
         className="mt-6 w-full rounded-md bg-highlight py-2.5 text-sm font-medium text-highlight-foreground transition-opacity hover:opacity-85 disabled:opacity-50"
       >
-        {step === 4 ? (isSubmitting ? 'Sending...' : 'Send estimate') : 'Continue'}
+        {step === 4 ? (isSubmitting ? 'Submitting...' : 'Submit estimate') : 'Continue'}
       </button>
     </motion.div>
   );
