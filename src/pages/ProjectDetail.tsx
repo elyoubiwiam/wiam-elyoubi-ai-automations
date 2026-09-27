@@ -237,13 +237,18 @@ const ProjectDetail: React.FC = () => {
                 <div className="mt-10">
                   <h3 className="text-lg font-semibold text-foreground mb-2">{project.exampleTitle}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">{project.exampleText}</p>
-                  <div className="overflow-hidden rounded-lg border border-muted">
+                  <button
+                    type="button"
+                    onClick={() => openLightbox(project.exampleImage, `Example result from ${project.title}`)}
+                    aria-label="Enlarge example result"
+                    className="block w-full overflow-hidden rounded-lg border border-muted cursor-zoom-in"
+                  >
                     <img
                       src={project.exampleImage}
                       alt={`Example result from ${project.title}`}
                       className="w-full"
                     />
-                  </div>
+                  </button>
                 </div>
               )}
 
