@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ExternalLink, X } from 'lucide-react';
 import { getProjectBySlug } from '@/lib/projects';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
