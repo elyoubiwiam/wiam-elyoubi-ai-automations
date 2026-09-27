@@ -272,6 +272,40 @@ const ProjectDetail: React.FC = () => {
         </div>
       </div>
       <Footer />
+      <AnimatePresence>
+        {lightboxImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-background/95 backdrop-blur-sm"
+            onClick={closeLightbox}
+            role="dialog"
+            aria-modal="true"
+            aria-label={lightboxAlt}
+          >
+            <motion.img
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
+              src={lightboxImage}
+              alt={lightboxAlt}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-full max-h-full w-auto h-auto object-contain rounded-lg shadow-2xl"
+            />
+            <button
+              type="button"
+              onClick={closeLightbox}
+              aria-label="Close enlarged image"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 inline-flex items-center justify-center w-11 h-11 rounded-full bg-highlight text-highlight-foreground transition-all hover:-translate-y-0.5 hover:shadow-md"
+            >
+              <X size={20} />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
