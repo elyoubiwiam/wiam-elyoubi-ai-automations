@@ -13,6 +13,35 @@ const ProjectDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = getProjectBySlug(slug || '');
   const [commandOpen, setCommandOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxAlt, setLightboxAlt] = useState('');
+
+  const openLightbox = useCallback((image: string, alt: string) => {
+    setLightboxImage(image);
+    setLightboxAlt(alt);
+  }, []);
+
+  const closeLightbox = useCallback(() => {
+    setLightboxImage(null);
+    setLightboxAlt('');
+  }, []);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [lightboxImage]);
+
+  useEffect(() => {
+    if (!lightboxImage) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxImage, closeLightbox]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
