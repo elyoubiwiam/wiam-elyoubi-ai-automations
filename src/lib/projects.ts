@@ -53,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     slug: "hiro",
-    image: recruitDashboard,
+    image: hiroCover,
     title: "Hiro",
     location: "Recruitment Workspace",
     year: "2026",
