@@ -4,4 +4,4 @@
 - [x] Add real SEO Insight Hub screenshots
 - [x] Verify the Work carousel and case study on phone and desktop
 - [x] Keep the About image and smaller text in one row at every screen size
-- [ ] Replace the SEO Insight Hub carousel cover with a clearer landing-page screenshot
+- [x] Replace the SEO Insight Hub carousel cover with a clearer landing-page screenshot
