@@ -7,6 +7,11 @@ import recruitDashboard from "@/assets/recruit-dashboard.png";
 import hiroCover from "@/assets/hiro-cover.png";
 import recruitCandidates from "@/assets/recruit-candidates.png";
 import recruitScorecard from "@/assets/recruit-scorecard.png";
+import seoInsightsHome from "@/assets/seo-insights-home.png";
+import seoInsightsOverview from "@/assets/seo-insights-overview.png";
+import seoInsightsIssues from "@/assets/seo-insights-issues.png";
+import seoInsightsBenchmarks from "@/assets/seo-insights-benchmarks.png";
+import seoInsightsStrategy from "@/assets/seo-insights-strategy.png";
 
 export interface Project {
   slug: string;
@@ -29,7 +34,6 @@ export interface Project {
   exampleText?: string;
 }
 
-// Placeholder projects. Replace the entries below with real case studies.
 export const projects: Project[] = [
   {
     slug: "ux-audit-tool",
@@ -68,24 +72,20 @@ export const projects: Project[] = [
     gallery: [recruitCandidates, recruitScorecard, recruitDashboard]
   },
   {
-    slug: "ai-document-assistant",
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80",
-    title: "AI Document Assistant",
-    location: "Back-Office Team",
+    slug: "seo-insight-hub",
+    image: seoInsightsHome,
+    title: "SEO Insight Hub",
+    location: "Organic Search Tool",
     year: "2026",
-    description: "Drafting and sorting routine documents now takes minutes, not afternoons.",
-    category: "AI Integration",
-    stack: "OpenAI API, Python, Google Workspace",
-    duration: "4 weeks",
-    services: ["AI Integration", "Prompt Design", "Process Automation"],
-    challenge: "A back-office team spent most of its day drafting routine documents from templates and sorting incoming requests into the right categories. The work was repetitive but required just enough judgment that nobody trusted a simple script with it.",
-    approach: "I integrated a language model into the team's existing workspace. It classifies and routes incoming requests, then prepares first drafts of routine documents from approved templates and past cases. A team member reviews every draft before it is sent.",
-    outcome: "Document drafting time dropped by more than half, and misrouted requests are nearly gone. The team reviews instead of writes, and the review step keeps quality under control.",
-    gallery: [
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&q=80",
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80"
-    ]
+    description: "A Search Console audit tool that turns search data into clear priorities and a 90-day action plan.",
+    category: "Custom Tool / AI",
+    stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
+    duration: "Product build",
+    services: ["Product Design", "Full-Stack Development", "AI Integration", "SEO Analysis"],
+    challenge: "Search Console contains useful performance data, but finding the pages and queries that need attention takes time. Marketers must compare periods, judge click-through rates against rankings and turn large exports into a practical plan.",
+    approach: "I built SEO Insight Hub to analyse a Search Console CSV and organise the findings by impact. It identifies pages with strong visibility but low click-through rates, searches losing traffic and keywords close to page one. The report estimates missed clicks, compares performance with industry benchmarks and highlights content gaps. It then turns the findings into prioritised recommendations and a structured 90-day plan.",
+    outcome: "Marketers and site owners can move from a raw Search Console export to a clear list of actions in one workflow. They can see where traffic is being lost, which changes offer the strongest return and what to work on first without sorting the data manually.",
+    gallery: [seoInsightsOverview, seoInsightsIssues, seoInsightsBenchmarks, seoInsightsStrategy]
   }
 ];
 
