@@ -260,7 +260,7 @@ const ProjectDetail: React.FC = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium bg-highlight text-highlight-foreground rounded-full transition-all hover:-translate-y-0.5 hover:shadow-md"
                   >
-                    Test the tool with your own page
+                    {project.liveCta || 'Try the live tool'}
                     <ExternalLink size={15} />
                   </a>
                 </div>
