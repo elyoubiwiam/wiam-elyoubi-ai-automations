@@ -1,6 +1,6 @@
 # Add Recruit to Work
 
-Add **Recruit** as a fourth Work project, following the same case-study format as UX Audit.
+Add **Recruit** by replacing the Internal Ops project, following the same case-study format as UX Audit.
 
 ## What will change
 
