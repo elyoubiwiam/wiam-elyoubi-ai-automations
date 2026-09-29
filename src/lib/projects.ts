@@ -7,7 +7,7 @@ import recruitDashboard from "@/assets/recruit-dashboard.png";
 import hiroCover from "@/assets/hiro-cover.png";
 import recruitCandidates from "@/assets/recruit-candidates.png";
 import recruitScorecard from "@/assets/recruit-scorecard.png";
-import seoInsightHubCover from "@/assets/seo-insight-hub-cover.png.asset.json";
+import seoInsightHubCover from "@/assets/seo-insight-hub-cover.png";
 import seoInsightsOverview from "@/assets/seo-insights-overview.png";
 import seoInsightsIssues from "@/assets/seo-insights-issues.png";
 import seoInsightsBenchmarks from "@/assets/seo-insights-benchmarks.png";
@@ -73,7 +73,7 @@ export const projects: Project[] = [
   },
   {
     slug: "seo-insight-hub",
-    image: seoInsightHubCover.url,
+    image: seoInsightHubCover,
     title: "SEO Insight Hub",
     location: "Organic Search Tool",
     year: "2026",
