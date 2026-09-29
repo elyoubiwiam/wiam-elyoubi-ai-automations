@@ -29,6 +29,7 @@ export interface Project {
   outcome: string;
   gallery: string[];
   liveUrl?: string;
+  liveCta?: string;
   exampleImage?: string;
   exampleTitle?: string;
   exampleText?: string;
@@ -47,6 +48,7 @@ export const projects: Project[] = [
     duration: "2 weeks",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "Behavioural Analysis"],
     liveUrl: "https://audit-the-ux.lovable.app",
+    liveCta: "Test the tool with your own page",
     challenge: "Founders and marketers often know that a page converts without knowing which elements influence visitors. A specialist review can be expensive, slow and difficult to understand, so many teams rely on guesswork.",
     approach: "I built a tool that analyses a page in about a minute. The user enters a URL and a short business description. The tool checks whether the site allows scanning, then reviews the visible copy, buttons and trust signals. It explains the persuasion techniques it finds across thirteen categories, including urgency, social proof, authority, risk reversal, pricing psychology and friction. Each finding uses plain language and includes an assessment of how effectively the page applies it. No account or plugin is required.",
     outcome: "The result is a free public tool for reviewing your own page, comparing a competitor's page and studying conversion techniques used on live websites. It also identifies manipulative patterns instead of recommending them.",
@@ -65,6 +67,8 @@ export const projects: Project[] = [
     category: "Custom Tool / AI",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
     duration: "Product build",
+    liveUrl: "https://hiro-recruitment.lovable.app",
+    liveCta: "Open Hiro",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "Workflow Design"],
     challenge: "Recruiters often manage clients, roles, candidate evidence and follow-ups across separate tools. That makes it difficult to compare applicants consistently, prepare tailored outreach and see which tasks need attention next.",
     approach: "I built Hiro as one working recruitment system. The command centre shows open roles, screening progress, response rates and outreach due. Recruiters can upload a CV, review a structured candidate profile and compare it with a role using an evidence-based scorecard. The tool identifies strengths, gaps and interview questions, then prepares personalised outreach and client submission notes from the same candidate record.",
@@ -81,6 +85,8 @@ export const projects: Project[] = [
     category: "Custom Tool / AI",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
     duration: "Product build",
+    liveUrl: "https://organic-seo-auditor.lovable.app",
+    liveCta: "Run an audit on your own data",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "SEO Analysis"],
     challenge: "Search Console contains useful performance data, but finding the pages and queries that need attention takes time. Marketers must compare periods, judge click-through rates against rankings and turn large exports into a practical plan.",
     approach: "I built SEO Insight Hub to analyse a Search Console CSV and organise the findings by impact. It identifies pages with strong visibility but low click-through rates, searches losing traffic and keywords close to page one. The report estimates missed clicks, compares performance with industry benchmarks and highlights content gaps. It then turns the findings into prioritised recommendations and a structured 90-day plan.",
