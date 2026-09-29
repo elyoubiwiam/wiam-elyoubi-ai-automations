@@ -4,6 +4,7 @@ import uxAuditCases from "@/assets/ux-audit-cases.jpg";
 import uxAuditForm from "@/assets/ux-audit-form.jpg";
 import uxAuditExample from "@/assets/ux-audit-example.png";
 import recruitDashboard from "@/assets/recruit-dashboard.png";
+import hiroCover from "@/assets/hiro-cover.png";
 import recruitCandidates from "@/assets/recruit-candidates.png";
 import recruitScorecard from "@/assets/recruit-scorecard.png";
 
