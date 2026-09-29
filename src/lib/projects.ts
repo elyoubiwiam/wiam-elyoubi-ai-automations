@@ -3,6 +3,9 @@ import uxAuditHow from "@/assets/ux-audit-how.jpg";
 import uxAuditCases from "@/assets/ux-audit-cases.jpg";
 import uxAuditForm from "@/assets/ux-audit-form.jpg";
 import uxAuditExample from "@/assets/ux-audit-example.png";
+import recruitDashboard from "@/assets/recruit-dashboard.png";
+import recruitCandidates from "@/assets/recruit-candidates.png";
+import recruitScorecard from "@/assets/recruit-scorecard.png";
 
 export interface Project {
   slug: string;
@@ -48,24 +51,20 @@ export const projects: Project[] = [
     exampleText: "This example shows an analysis of an e-commerce search results page. It starts with a clear summary, then explains each persuasion technique it found, including social proof and herd behaviour. It quotes the relevant page copy and assesses how effectively each technique is used."
   },
   {
-    slug: "internal-ops-dashboard",
-    image: "https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&q=80",
-    title: "Internal Ops Dashboard",
-    location: "Operations Team",
+    slug: "recruit-tool",
+    image: recruitDashboard,
+    title: "Recruit",
+    location: "Recruitment Workspace",
     year: "2026",
-    description: "One live dashboard instead of five reports assembled by hand every week.",
-    category: "Custom Tool",
-    stack: "React, Supabase, PostgreSQL",
-    duration: "5 weeks",
-    services: ["Requirements Workshops", "Full-Stack Development", "Data Modeling"],
-    challenge: "An operations team spent hours each week pulling numbers from five sources into one report. The data was often out of date by the time the report was ready, and new questions required more manual work.",
-    approach: "I consolidated the sources into a single database and built a dashboard that updates in real time. Every metric from the weekly report became a live view, with filters for the questions the team actually asks. The manual report was retired entirely.",
-    outcome: "The weekly report went from half a day of manual work to zero. The team now answers data questions live instead of scheduling them for next week's report.",
-    gallery: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&q=80",
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
-    ]
+    description: "A recruitment workspace for screening candidates, managing outreach and keeping every role on track.",
+    category: "Custom Tool / AI",
+    stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
+    duration: "Product build",
+    services: ["Product Design", "Full-Stack Development", "AI Integration", "Workflow Design"],
+    challenge: "Recruiters often manage clients, roles, candidate evidence and follow-ups across separate tools. That makes it difficult to compare applicants consistently, prepare tailored outreach and see which tasks need attention next.",
+    approach: "I built Talentdesk as one working recruitment system. The command centre shows open roles, screening progress, response rates and outreach due. Recruiters can upload a CV, review a structured candidate profile and compare it with a role using an evidence-based scorecard. The tool identifies strengths, gaps and interview questions, then prepares personalised outreach and client submission notes from the same candidate record.",
+    outcome: "Recruiters can move from candidate intake to screening, outreach and client submission without rebuilding the same information in different tools. The workspace keeps evidence beside each recommendation and gives the team one clear action queue for follow-ups.",
+    gallery: [recruitCandidates, recruitScorecard, recruitDashboard]
   },
   {
     slug: "ai-document-assistant",
