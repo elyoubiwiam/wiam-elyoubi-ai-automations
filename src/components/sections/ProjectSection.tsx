@@ -10,7 +10,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import { projects } from '@/lib/projects';
+import { projectsNewestFirst } from '@/lib/projects';
 
 interface ProjectCardProps {
   slug: string;
@@ -117,7 +117,7 @@ const ProjectSection: React.FC = () => {
 
         <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} aria-label="Projects">
           <CarouselContent className="-ml-6 md:-ml-16">
-            {projects.map((project, index) => (
+            {projectsNewestFirst.map((project, index) => (
               <CarouselItem key={project.slug} className="pl-6 md:basis-1/2 md:pl-16">
                 <ProjectCard 
                   slug={project.slug}
@@ -136,7 +136,7 @@ const ProjectSection: React.FC = () => {
           </CarouselContent>
           <div className="mt-7 flex items-center justify-end gap-3">
             <span className="mr-auto text-sm font-semibold text-muted-foreground" aria-live="polite">
-              {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+              {String(activeIndex + 1).padStart(2, '0')} / {String(projectsNewestFirst.length).padStart(2, '0')}
             </span>
             <Button type="button" size="icon" onClick={() => api?.scrollPrev()} aria-label="Previous project" className="rounded-[3px]">
               <ArrowLeft />

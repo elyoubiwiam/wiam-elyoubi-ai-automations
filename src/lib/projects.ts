@@ -116,6 +116,10 @@ export const projects: Project[] = [
   }
 ];
 
+// Newest-first display order. Add new projects at the end of `projects`
+// (oldest to newest); they appear at the top of Work automatically.
+export const projectsNewestFirst: Project[] = [...projects].slice().reverse();
+
 export const getProjectBySlug = (slug: string): Project | undefined => {
   return projects.find(p => p.slug === slug);
 };
