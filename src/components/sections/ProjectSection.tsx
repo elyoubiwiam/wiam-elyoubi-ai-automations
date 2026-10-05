@@ -136,7 +136,7 @@ const ProjectSection: React.FC = () => {
           </CarouselContent>
           <div className="mt-7 flex items-center justify-end gap-3">
             <span className="mr-auto text-sm font-semibold text-muted-foreground" aria-live="polite">
-              {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+              {String(activeIndex + 1).padStart(2, '0')} / {String(projectsNewestFirst.length).padStart(2, '0')}
             </span>
             <Button type="button" size="icon" onClick={() => api?.scrollPrev()} aria-label="Previous project" className="rounded-[3px]">
               <ArrowLeft />
