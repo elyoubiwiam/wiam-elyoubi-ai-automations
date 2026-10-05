@@ -12,6 +12,9 @@ import seoInsightsOverview from "@/assets/seo-insights-overview.png";
 import seoInsightsIssues from "@/assets/seo-insights-issues.png";
 import seoInsightsBenchmarks from "@/assets/seo-insights-benchmarks.png";
 import seoInsightsStrategy from "@/assets/seo-insights-strategy.png";
+import cvSorterCover from "@/assets/cv-sorter-cover.png";
+import cvSorterReview from "@/assets/cv-sorter-review.png";
+import cvSorterTemplate from "@/assets/cv-sorter-template.png";
 
 export interface Project {
   slug: string;
@@ -92,6 +95,24 @@ export const projects: Project[] = [
     approach: "I built SEO Insight Hub to analyse a Search Console CSV and organise the findings by impact. It identifies pages with strong visibility but low click-through rates, searches losing traffic and keywords close to page one. The report estimates missed clicks, compares performance with industry benchmarks and highlights content gaps. It then turns the findings into prioritised recommendations and a structured 90-day plan.",
     outcome: "Marketers and site owners can move from a raw Search Console export to a clear list of actions in one workflow. They can see where traffic is being lost, which changes offer the strongest return and what to work on first without sorting the data manually.",
     gallery: [seoInsightsOverview, seoInsightsIssues, seoInsightsBenchmarks, seoInsightsStrategy]
+  },
+  {
+    slug: "cv-sorter",
+    image: cvSorterCover,
+    title: "CV Sorter",
+    location: "Recruitment Tool",
+    year: "2026",
+    description: "A batch CV formatting tool that turns varied candidate files into one consistent, client-ready format.",
+    category: "Custom Tool / AI",
+    stack: "React, TanStack Start, TypeScript, Tailwind, AI extraction",
+    duration: "Product build",
+    liveUrl: "https://recruit-formatter-agent.lovable.app",
+    liveCta: "Format your CVs",
+    services: ["Product Design", "Full-Stack Development", "AI Integration", "Document Export"],
+    challenge: "Recruiters receive CVs in different layouts, file types and levels of detail. Reformatting every document for a client takes time, creates inconsistencies and slows down candidate submissions.",
+    approach: "I built CV Sorter to process PDF, Word and text files in batches. The recruiter chooses a template, uploads the CVs and reviews each candidate beside a clean document preview. The tool preserves the candidate's wording while organising the content into a consistent structure. Recruiters can edit the result, shorten it, remove personal details and approve each CV before export.",
+    outcome: "Recruiters can turn a mixed batch of CVs into consistent, client-ready documents without rebuilding them one by one. Approved files can be downloaded as PDF or Word documents, individually or together in one zip file.",
+    gallery: [cvSorterReview, cvSorterTemplate, cvSorterCover]
   }
 ];
 
