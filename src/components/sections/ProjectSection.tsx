@@ -117,7 +117,7 @@ const ProjectSection: React.FC = () => {
 
         <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} aria-label="Projects">
           <CarouselContent className="-ml-6 md:-ml-16">
-            {projects.map((project, index) => (
+            {projectsNewestFirst.map((project, index) => (
               <CarouselItem key={project.slug} className="pl-6 md:basis-1/2 md:pl-16">
                 <ProjectCard 
                   slug={project.slug}

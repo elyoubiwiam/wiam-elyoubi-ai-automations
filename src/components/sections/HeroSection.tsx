@@ -2,13 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import cvSorterCover from '@/assets/cv-sorter-cover.png';
+import { projectsNewestFirst } from '@/lib/projects';
 
 const HeroSection: React.FC = () => {
+  const latestProject = projectsNewestFirst[0];
+
   return (
     <section id="hero" className="w-full pt-20 pb-16">
       <div className="flex flex-wrap items-start justify-between gap-10">
-        <motion.h1 
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
@@ -16,7 +18,7 @@ const HeroSection: React.FC = () => {
         >
           Work Faster With AI
         </motion.h1>
-        <motion.p 
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -25,8 +27,8 @@ const HeroSection: React.FC = () => {
           I build AI automations and custom tools that remove repetitive tasks, so your team can focus on work that requires human judgement.
         </motion.p>
       </div>
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.3 }}
@@ -37,7 +39,7 @@ const HeroSection: React.FC = () => {
           { label: "Clients", value: "Teams and businesses of any size" },
           { label: "Availability", value: "Open to new projects" }
         ].map((item, i) => (
-          <motion.div 
+          <motion.div
             key={item.label}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -48,8 +50,8 @@ const HeroSection: React.FC = () => {
           </motion.div>
         ))}
       </motion.div>
-      
-      <motion.div 
+
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
@@ -58,21 +60,21 @@ const HeroSection: React.FC = () => {
         <div className="flex items-baseline justify-between gap-4 mb-4">
           <h2 className="text-sm font-bold text-foreground">Latest tool built</h2>
         </div>
-        <Link to="/project/cv-sorter" className="group block w-full">
+        <Link to={`/project/${latestProject.slug}`} className="group block w-full">
           <div className="w-full overflow-hidden">
             <img
-              src={cvSorterCover}
-              alt="CV Sorter, a batch CV formatting tool"
+              src={latestProject.image}
+              alt={latestProject.title}
               className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </div>
           <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
             <div className="text-sm">
-              <h3 className="font-semibold text-foreground">CV Sorter</h3>
-              <p className="font-medium text-muted-foreground">Recruitment Tool • 2026</p>
+              <h3 className="font-semibold text-foreground">{latestProject.title}</h3>
+              <p className="font-medium text-muted-foreground">{latestProject.location} • {latestProject.year}</p>
             </div>
             <p className="text-xs font-medium text-muted-foreground text-left md:text-right max-w-[420px]">
-              Turns a mixed batch of candidate CVs into one consistent, client-ready format. Upload PDF, Word or text files, review each one, then export as PDF or Word.
+              {latestProject.description}
             </p>
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
               View project
