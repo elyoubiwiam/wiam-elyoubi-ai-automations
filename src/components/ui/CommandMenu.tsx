@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Command as CommandPrimitive } from 'cmdk';
 import { Dialog, DialogPortal, DialogOverlay } from '@/components/ui/dialog';
-import { Calculator, Users, Info, Home, Briefcase, Mail, Search } from 'lucide-react';
+import { Users, Info, Home, Briefcase, Mail, Search } from 'lucide-react';
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { useNavigate } from 'react-router-dom';
 import ContactForm from '@/components/forms/ContactForm';
-import CalculatorForm from '@/components/forms/CalculatorForm';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 interface CommandMenuProps {
@@ -13,15 +12,9 @@ interface CommandMenuProps {
   onOpenChange: (open: boolean) => void;
 }
 
-type View = 'main' | 'calculator' | 'contact';
+type View = 'main' | 'contact';
 
 const suggestions = [
-  {
-    icon: Calculator,
-    label: "Calculate a project estimate",
-    description: "Get a rough estimate for your automation project",
-    action: "calculate",
-  },
   {
     icon: Mail,
     label: "Contact me",
@@ -83,9 +76,6 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
 
   const handleSuggestion = (action: string) => {
     switch (action) {
-      case 'calculate':
-        setView('calculator');
-        break;
       case 'contact':
         setView('contact');
         break;
@@ -198,10 +188,6 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
                     </div>
                   </div>
                 </CommandPrimitive>
-              )}
-
-              {view === 'calculator' && (
-                <CalculatorForm key="calculator" onBack={handleBack} onClose={handleClose} />
               )}
 
               {view === 'contact' && (
