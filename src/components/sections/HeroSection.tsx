@@ -1,5 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import cvSorterCover from '@/assets/cv-sorter-cover.png';
 
 const HeroSection: React.FC = () => {
   return (
