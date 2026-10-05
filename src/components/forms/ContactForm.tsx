@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Send } from 'lucide-react';
+import { ArrowLeft, Linkedin, Mail, Send } from 'lucide-react';
 import { z } from 'zod';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -104,9 +104,28 @@ const ContactForm: React.FC<ContactFormProps> = ({ onBack, onClose }) => {
       </button>
 
       <h2 className="text-lg font-semibold text-foreground mb-2">Get in touch</h2>
-      <p className="text-sm text-muted-foreground mb-6">
+      <p className="text-sm text-muted-foreground mb-4">
         Tell me about your project and I'll respond within 24 hours.
       </p>
+
+      <div className="mb-6 flex flex-col gap-2 text-sm">
+        <a
+          href="mailto:elyoubi.wia@gmail.com"
+          className="flex items-center gap-2 text-foreground transition-opacity hover:opacity-75"
+        >
+          <Mail size={16} className="text-muted-foreground" />
+          elyoubi.wia@gmail.com
+        </a>
+        <a
+          href="https://www.linkedin.com/in/wiam-el-youbi-2694371b8/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-foreground transition-opacity hover:opacity-75"
+        >
+          <Linkedin size={16} className="text-muted-foreground" />
+          LinkedIn profile
+        </a>
+      </div>
 
       <form onSubmit={handleSubmit} noValidate className="space-y-4">
         <div>
