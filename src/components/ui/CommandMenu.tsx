@@ -194,7 +194,7 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
               {view === 'contact' && (
                 <ContactForm key="contact" onBack={handleBack} onClose={handleClose} />
               )}
-            </>
+            </div>
           </div>
         </DialogPrimitive.Content>
       </DialogPortal>
