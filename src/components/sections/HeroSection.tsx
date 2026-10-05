@@ -50,16 +50,35 @@ const HeroSection: React.FC = () => {
       </motion.div>
       
       <motion.div 
-        initial={{ opacity: 0, scale: 0.98 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className="group mt-6 w-full overflow-hidden"
       >
-        <img
-          src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80"
-          alt="Analytics dashboard showing automated reporting"
-          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-        />
+        <div className="flex items-baseline justify-between gap-4 mb-4">
+          <h2 className="text-sm font-bold text-foreground">Latest tool built</h2>
+        </div>
+        <Link to="/project/cv-sorter" className="group block w-full">
+          <div className="w-full overflow-hidden">
+            <img
+              src={cvSorterCover}
+              alt="CV Sorter, a batch CV formatting tool"
+              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+          <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
+            <div className="text-sm">
+              <h3 className="font-semibold text-foreground">CV Sorter</h3>
+              <p className="font-medium text-muted-foreground">Recruitment Tool • 2026</p>
+            </div>
+            <p className="text-xs font-medium text-muted-foreground text-right max-w-[420px]">
+              Turns a mixed batch of candidate CVs into one consistent, client-ready format. Upload PDF, Word or text files, review each one, then export as PDF or Word.
+            </p>
+            <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+              View project
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </span>
+          </div>
+        </Link>
       </motion.div>
     </section>
   );
