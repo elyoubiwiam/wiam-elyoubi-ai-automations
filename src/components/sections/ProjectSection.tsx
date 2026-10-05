@@ -10,7 +10,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import { projects } from '@/lib/projects';
+import { projectsNewestFirst } from '@/lib/projects';
 
 interface ProjectCardProps {
   slug: string;
