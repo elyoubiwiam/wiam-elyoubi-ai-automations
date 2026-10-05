@@ -91,7 +91,7 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
   const handleClose = () => {
     onOpenChange(false);
     // Reset view after close animation
-    setTimeout(() => setView('main'), 200);
+    setTimeout(() => setView('main'), 500);
   };
 
   const handleBack = () => {
@@ -115,10 +115,10 @@ const CommandMenu: React.FC<CommandMenuProps> = ({ open, onOpenChange }) => {
       <DialogPortal>
         <DialogOverlay className="bg-black/60" />
         <DialogPrimitive.Content
-          className="fixed left-[50%] top-[50%] z-50 w-full max-w-[350px] md:max-w-[540px] translate-x-[-50%] translate-y-[-50%] duration-300 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-[0.97] data-[state=open]:zoom-in-[0.98] data-[state=open]:slide-in-from-bottom-2 data-[state=closed]:slide-out-to-bottom-1"
+          className="fixed left-[50%] top-[50%] z-50 w-full max-w-[350px] md:max-w-[540px] translate-x-[-50%] translate-y-[-50%] duration-500 ease-out data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-[0.95] data-[state=open]:zoom-in-[0.95]"
         >
           <div className="flex flex-col overflow-hidden rounded-lg bg-background border border-foreground/20">
-            <div key={view} className="animate-in fade-in duration-300 ease-out">
+            <div key={view} className="animate-in fade-in duration-500 ease-out">
 
               {view === 'main' && (
                 <CommandPrimitive
