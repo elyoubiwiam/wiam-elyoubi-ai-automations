@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Linkedin } from 'lucide-react';
 import wiamAboutImage from '@/assets/wiam-about.jpg';
 
 const AboutSection: React.FC = () => {
