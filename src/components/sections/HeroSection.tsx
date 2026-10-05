@@ -71,7 +71,7 @@ const HeroSection: React.FC = () => {
               <h3 className="font-semibold text-foreground">CV Sorter</h3>
               <p className="font-medium text-muted-foreground">Recruitment Tool • 2026</p>
             </div>
-            <p className="text-xs font-medium text-muted-foreground text-right max-w-[420px]">
+            <p className="text-xs font-medium text-muted-foreground text-left md:text-right max-w-[420px]">
               Turns a mixed batch of candidate CVs into one consistent, client-ready format. Upload PDF, Word or text files, review each one, then export as PDF or Word.
             </p>
             <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
