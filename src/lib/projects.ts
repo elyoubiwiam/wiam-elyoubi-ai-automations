@@ -121,5 +121,5 @@ export const projects: Project[] = [
 export const projectsNewestFirst: Project[] = [...projects].slice().reverse();
 
 export const getProjectBySlug = (slug: string): Project | undefined => {
-  return projects.find(p => p.slug === p.slug ? projects.find(pr => pr.slug === slug) : false);
+  return projects.find(p => p.slug === slug);
 };
