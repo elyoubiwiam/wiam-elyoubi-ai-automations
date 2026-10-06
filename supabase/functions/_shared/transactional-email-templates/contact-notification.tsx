@@ -1,5 +1,5 @@
 import * as React from 'npm:react@18.3.1'
-import { Body, Container, Head, Heading, Html, Preview, Section, Text } from 'npm:@react-email/components@0.0.22'
+import { Body, Container, Head, Heading, Html, Img, Preview, Section, Text } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
 
 interface Props {
@@ -14,6 +14,11 @@ const ContactNotification = ({ name = 'Someone', email = '', message = '' }: Pro
     <Preview>New message from {name}</Preview>
     <Body style={main}>
       <Container style={container}>
+        <Section style={header}>
+          <Img src="https://wiam-elyoubi.com/favicon.png" alt="Wiam El Youbi" width="40" height="40" style={logo} />
+          <Text style={brand}>Wiam El Youbi</Text>
+        </Section>
+        <Section style={goldBar} />
         <Heading style={h1}>New message from your website</Heading>
         <Section style={box}>
           <Text style={label}>Name</Text>
@@ -39,6 +44,10 @@ export const template = {
 
 const main = { backgroundColor: '#ffffff', fontFamily: 'Arial, sans-serif' }
 const container = { padding: '24px', maxWidth: '560px' }
+const header = { marginBottom: '4px' }
+const logo = { display: 'inline-block', verticalAlign: 'middle', borderRadius: '8px' }
+const brand = { display: 'inline-block', verticalAlign: 'middle', fontSize: '16px', fontWeight: 'bold' as const, color: '#420C14', margin: '0 0 0 10px' }
+const goldBar = { backgroundColor: '#EEC643', height: '4px', borderRadius: '2px', margin: '12px 0 24px' }
 const h1 = { fontSize: '22px', color: '#420C14', margin: '0 0 20px' }
 const box = { backgroundColor: '#EEF0F2', borderRadius: '8px', padding: '16px 20px' }
 const label = { fontSize: '12px', color: '#6b6b6b', textTransform: 'uppercase' as const, margin: '12px 0 2px' }
