@@ -1,6 +1,7 @@
 import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors';
 import { createClient } from 'npm:@supabase/supabase-js@2';
 import { z } from 'npm:zod@3.25.76';
+import { sendTemplateEmail } from '../_shared/transactional-email-templates/send-email.ts';
 import { getClientIp, isRateLimited } from '../_shared/rateLimit.ts';
 
 const BodySchema = z.object({
@@ -47,11 +48,21 @@ Deno.serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!,
     );
 
-    const { error } = await supabase.from('contact_submissions').insert(parsed.data);
+    const { data: row, error } = await supabase.from('contact_submissions').insert(parsed.data).select('id').single();
 
     if (error) {
       console.error('insert failed', error.message);
       return json({ error: 'Could not save your message' }, 500);
+    }
+
+    try {
+      await sendTemplateEmail('contact-notification', 'elyoubi.wia@gmail.com', {
+        templateData: parsed.data,
+        idempotencyKey: `contact-notification-${row.id}`,
+        replyTo: parsed.data.email,
+      });
+    } catch (e) {
+      console.error('notification email failed', e instanceof Error ? e.message : String(e));
     }
 
     return json({ success: true }, 200);
