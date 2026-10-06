@@ -24,6 +24,7 @@ export interface Project {
   year: string;
   description: string;
   category: string;
+  workCategory: string;
   stack: string;
   duration: string;
   services: string[];
