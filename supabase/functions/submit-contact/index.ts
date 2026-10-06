@@ -65,6 +65,15 @@ Deno.serve(async (req) => {
       console.error('notification email failed', e instanceof Error ? e.message : String(e));
     }
 
+    try {
+      await sendTemplateEmail('contact-confirmation', parsed.data.email, {
+        templateData: { name: parsed.data.name },
+        idempotencyKey: `contact-confirmation-${row.id}`,
+      });
+    } catch (e) {
+      console.error('confirmation email failed', e instanceof Error ? e.message : String(e));
+    }
+
     return json({ success: true }, 200);
   } catch (e) {
     console.error('unexpected error', e instanceof Error ? e.message : String(e));
