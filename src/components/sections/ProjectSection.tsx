@@ -116,7 +116,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, projects
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-      className="flex h-full flex-col rounded-lg border border-border bg-card p-6 md:p-8"
+      className="flex h-full min-w-0 flex-col rounded-lg border border-border bg-card p-6 md:p-8"
     >
       <div className="flex items-baseline justify-between gap-4">
         <div>
