@@ -24,6 +24,7 @@ export interface Project {
   year: string;
   description: string;
   category: string;
+  workCategory: string;
   stack: string;
   duration: string;
   services: string[];
@@ -47,6 +48,7 @@ export const projects: Project[] = [
     year: "2026",
     description: "Paste any landing page URL and see the persuasion techniques it uses, in plain language.",
     category: "Custom Tool / AI",
+    workCategory: "Marketing tools",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
     duration: "2 weeks",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "Behavioural Analysis"],
@@ -68,6 +70,7 @@ export const projects: Project[] = [
     year: "2026",
     description: "A recruitment workspace for screening candidates, managing outreach and keeping every role on track.",
     category: "Custom Tool / AI",
+    workCategory: "Recruiter tools",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
     duration: "Product build",
     liveUrl: "https://hiro-recruitment.lovable.app",
@@ -86,6 +89,7 @@ export const projects: Project[] = [
     year: "2026",
     description: "A Search Console audit tool that turns search data into clear priorities and a 90-day action plan.",
     category: "Custom Tool / AI",
+    workCategory: "Marketing tools",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI analysis",
     duration: "Product build",
     liveUrl: "https://organic-seo-auditor.lovable.app",
@@ -104,6 +108,7 @@ export const projects: Project[] = [
     year: "2026",
     description: "A batch CV formatting tool that turns varied candidate files into one consistent, client-ready format.",
     category: "Custom Tool / AI",
+    workCategory: "Recruiter tools",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI extraction",
     duration: "Product build",
     liveUrl: "https://recruit-formatter-agent.lovable.app",

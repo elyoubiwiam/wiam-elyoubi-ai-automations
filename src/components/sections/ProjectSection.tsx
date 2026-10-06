@@ -1,3 +1,5 @@
+// ============= Full file contents =============
+
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -10,7 +12,18 @@ import {
   CarouselContent,
   CarouselItem,
 } from '@/components/ui/carousel';
-import { projectsNewestFirst } from '@/lib/projects';
+import { projectsNewestFirst, Project } from '@/lib/projects';
+
+const WORK_CATEGORIES = [
+  {
+    name: 'Recruiter tools',
+    description: 'Tools that speed up screening, formatting and client submissions.',
+  },
+  {
+    name: 'Marketing tools',
+    description: 'Tools that turn marketing data into clear next steps.',
+  },
+];
 
 interface ProjectCardProps {
   slug: string;
@@ -25,14 +38,14 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location, year, description, index, onImageHoverChange }) => (
   <Link to={`/project/${slug}`}>
-    <motion.article 
+    <motion.article
       layout
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ 
-        duration: 0.4, 
-        delay: index * 0.05, 
+      transition={{
+        duration: 0.4,
+        delay: index * 0.05,
         ease: [0.25, 0.1, 0.25, 1],
         layout: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }
       }}
@@ -44,8 +57,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location,
         onMouseEnter={() => onImageHoverChange(true)}
         onMouseLeave={() => onImageHoverChange(false)}
       >
-        <img 
-          src={image} 
+        <img
+          src={image}
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
         />
@@ -61,7 +74,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ slug, image, title, location,
   </Link>
 );
 
-const ProjectSection: React.FC = () => {
+interface CategoryCardProps {
+  name: string;
+  description: string;
+  projects: Project[];
+}
+
+const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, projects }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [activeIndex, setActiveIndex] = useState(0);
   const isImageHovered = useRef(false);
@@ -92,10 +111,69 @@ const ProjectSection: React.FC = () => {
   }, [api]);
 
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      className="flex h-full min-w-0 flex-col rounded-lg border border-border bg-card p-6 md:p-8"
+    >
+      <div className="flex items-baseline justify-between gap-4">
+        <div>
+          <h3 className="text-heading-sm font-semibold text-foreground">{name}</h3>
+          <p className="mt-1 text-sm text-muted-foreground">{description}</p>
+        </div>
+        <span className="shrink-0 text-xs font-semibold text-muted-foreground">
+          {projects.length === 1 ? '1 case study' : `${projects.length} case studies`}
+        </span>
+      </div>
+
+      <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} className="mt-6 flex-1" aria-label={`${name} projects`}>
+        <CarouselContent>
+          {projects.map((project, index) => (
+            <CarouselItem key={project.slug}>
+              <ProjectCard
+                slug={project.slug}
+                image={project.image}
+                title={project.title}
+                location={project.location}
+                year={project.year}
+                description={project.description}
+                index={index}
+                onImageHoverChange={(isHovered) => {
+                  isImageHovered.current = isHovered;
+                }}
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <div className="mt-7 flex items-center justify-end gap-3">
+          <span className="mr-auto text-sm font-semibold text-muted-foreground" aria-live="polite">
+            {String(activeIndex + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
+          </span>
+          <Button type="button" size="icon" onClick={() => api?.scrollPrev()} aria-label={`Previous ${name} project`} className="rounded-[3px]">
+            <ArrowLeft />
+          </Button>
+          <Button type="button" size="icon" onClick={() => api?.scrollNext()} aria-label={`Next ${name} project`} className="rounded-[3px]">
+            <ArrowRight />
+          </Button>
+        </div>
+      </Carousel>
+    </motion.div>
+  );
+};
+
+const ProjectSection: React.FC = () => {
+  const categories = WORK_CATEGORIES.map((category) => ({
+    ...category,
+    projects: projectsNewestFirst.filter((project) => project.workCategory === category.name),
+  })).filter((group) => group.projects.length > 0);
+
+  return (
     <section id="projects" className="relative w-full py-16">
       {/* Background text */}
       <div className="absolute inset-x-0 top-0 overflow-hidden pointer-events-none">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -105,7 +183,7 @@ const ProjectSection: React.FC = () => {
           WORK
         </motion.div>
       </div>
-      
+
       <div className="relative z-10">
         <AnimatedSection>
           <h2 className="text-heading-sm md:text-heading-md lg:text-heading font-semibold text-foreground">
@@ -113,39 +191,16 @@ const ProjectSection: React.FC = () => {
           </h2>
         </AnimatedSection>
 
-        <h3 className="mb-6 mt-11 text-sm font-semibold text-foreground">Projects</h3>
-
-        <Carousel setApi={setApi} opts={{ align: 'start', loop: true }} aria-label="Projects">
-          <CarouselContent className="-ml-6 md:-ml-16">
-            {projectsNewestFirst.map((project, index) => (
-              <CarouselItem key={project.slug} className="pl-6 md:basis-1/2 md:pl-16">
-                <ProjectCard 
-                  slug={project.slug}
-                  image={project.image}
-                  title={project.title}
-                  location={project.location}
-                  year={project.year}
-                  description={project.description}
-                  index={index} 
-                   onImageHoverChange={(isHovered) => {
-                     isImageHovered.current = isHovered;
-                   }}
-                />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="mt-7 flex items-center justify-end gap-3">
-            <span className="mr-auto text-sm font-semibold text-muted-foreground" aria-live="polite">
-              {String(activeIndex + 1).padStart(2, '0')} / {String(projectsNewestFirst.length).padStart(2, '0')}
-            </span>
-            <Button type="button" size="icon" onClick={() => api?.scrollPrev()} aria-label="Previous project" className="rounded-[3px]">
-              <ArrowLeft />
-            </Button>
-            <Button type="button" size="icon" onClick={() => api?.scrollNext()} aria-label="Next project" className="rounded-[3px]">
-              <ArrowRight />
-            </Button>
-          </div>
-        </Carousel>
+        <div className="mt-11 grid gap-6 lg:grid-cols-2">
+          {categories.map((category) => (
+            <CategoryCard
+              key={category.name}
+              name={category.name}
+              description={category.description}
+              projects={category.projects}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
