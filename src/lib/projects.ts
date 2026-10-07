@@ -15,6 +15,10 @@ import seoInsightsStrategy from "@/assets/seo-insights-strategy.png";
 import cvSorterCover from "@/assets/cv-sorter-cover.png";
 import cvSorterReview from "@/assets/cv-sorter-review.png";
 import cvSorterTemplate from "@/assets/cv-sorter-template.png";
+import doctAssistSpecialty from "@/assets/doct-assist-specialty.png";
+import doctAssistSymptoms from "@/assets/doct-assist-symptoms.png";
+import doctAssistIntake from "@/assets/doct-assist-intake.png";
+import doctAssistDocument from "@/assets/doct-assist-document.png";
 
 export interface Project {
   slug: string;
