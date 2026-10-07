@@ -1,6 +1,6 @@
 # Roadmap
 
-- [ ] Use the supplied DoctAssist screenshot as the latest-project cover and verify emoji rendering
+- [x] Use the supplied DoctAssist screenshot as the latest-project cover and verify emoji rendering
 
 - [x] Replace AI Document Assistant with SEO Insight Hub project data
 - [x] Add real SEO Insight Hub screenshots
