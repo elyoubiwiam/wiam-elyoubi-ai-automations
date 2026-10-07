@@ -110,7 +110,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ name, description, projects
     if (!api || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const timer = window.setInterval(() => {
       if (!isImageHovered.current) api.scrollNext();
-    }, 5000);
+    }, 9000);
     return () => window.clearInterval(timer);
   }, [api]);
 
