@@ -23,6 +23,10 @@ const WORK_CATEGORIES = [
     name: 'Marketing tools',
     description: 'Tools that turn marketing data into clear next steps.',
   },
+  {
+    name: 'Clinical tools',
+    description: 'Tools that structure clinical work and keep the clinician in control.',
+  },
 ];
 
 interface ProjectCardProps {

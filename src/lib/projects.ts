@@ -15,6 +15,10 @@ import seoInsightsStrategy from "@/assets/seo-insights-strategy.png";
 import cvSorterCover from "@/assets/cv-sorter-cover.png";
 import cvSorterReview from "@/assets/cv-sorter-review.png";
 import cvSorterTemplate from "@/assets/cv-sorter-template.png";
+import doctAssistSpecialty from "@/assets/doct-assist-specialty.png";
+import doctAssistSymptoms from "@/assets/doct-assist-symptoms.png";
+import doctAssistIntake from "@/assets/doct-assist-intake.png";
+import doctAssistDocument from "@/assets/doct-assist-document.png";
 
 export interface Project {
   slug: string;
@@ -118,6 +122,25 @@ export const projects: Project[] = [
     approach: "I built CV Sorter to process PDF, Word and text files in batches. The recruiter chooses a template, uploads the CVs and reviews each candidate beside a clean document preview. The tool preserves the candidate's wording while organising the content into a consistent structure. Recruiters can edit the result, shorten it, remove personal details and approve each CV before export.",
     outcome: "Recruiters can turn a mixed batch of CVs into consistent, client-ready documents without rebuilding them one by one. Approved files can be downloaded as PDF or Word documents, individually or together in one zip file.",
     gallery: [cvSorterReview, cvSorterTemplate, cvSorterCover]
+  },
+  {
+    slug: "doct-assist",
+    image: doctAssistSpecialty,
+    title: "DoctAssist",
+    location: "Clinical Intake Tool",
+    year: "2026",
+    description: "A guided clinical intake tool that turns symptoms into a structured patient document clinicians can review and sign.",
+    category: "Custom Tool / AI",
+    workCategory: "Clinical tools",
+    stack: "React, TanStack Start, TypeScript, Tailwind, AI suggestions",
+    duration: "Product build",
+    liveUrl: "https://doct-assist.lovable.app",
+    liveCta: "Run a patient intake",
+    services: ["Product Design", "Full-Stack Development", "AI Integration", "Clinical Workflow Design"],
+    challenge: "Clinicians spend a large part of a consultation writing notes instead of focusing on the patient. Intake quality varies between specialties, and AI output in healthcare needs guardrails, clear data protection and review by a human before anything becomes part of a record.",
+    approach: "I built DoctAssist as a guided five-step workflow: a data protection notice, a specialty selector, symptom entry, a specialty-specific intake form and a final clinical document. Twenty outpatient specialties each load a reusable, editable template. The clinician enters symptoms without patient identifiers, and the tool suggests follow-up questions, possible assessments, next steps and red flags for the clinician to review. It works in English and French, and the finished record can be downloaded or printed as a PDF.",
+    outcome: "Clinicians get a structured, consistent intake record for every patient without building forms by hand. Every AI suggestion is framed as decision support for review, not a diagnosis, and the tool keeps patient identifiers out of the workflow by design.",
+    gallery: [doctAssistSymptoms, doctAssistIntake, doctAssistDocument]
   }
 ];
 
