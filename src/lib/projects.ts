@@ -115,7 +115,7 @@ export const projects: Project[] = [
     workCategory: "Recruiter tools",
     stack: "React, TanStack Start, TypeScript, Tailwind, AI extraction",
     duration: "Product build",
-    liveUrl: "https://recruit-formatter-agent.lovable.app",
+    liveUrl: "https://uniform-cv.lovable.app",
     liveCta: "Format your CVs",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "Document Export"],
     challenge: "Recruiters receive CVs in different layouts, file types and levels of detail. Reformatting every document for a client takes time, creates inconsistencies and slows down candidate submissions.",
