@@ -4,7 +4,7 @@ A personal portfolio for Wiam El Youbi, showcasing AI automations, custom intern
 
 Built with [Lovable](https://lovable.dev).
 
-**Live app**: https://wiam-elyoubi-ai-automations.lovable.app
+**Live app**: https://wiam-elyoubi.com
 
 ## Build with Lovable
 
