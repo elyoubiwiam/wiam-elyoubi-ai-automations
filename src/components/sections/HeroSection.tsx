@@ -65,7 +65,7 @@ const HeroSection: React.FC = () => {
         <div className="flex items-baseline justify-between gap-4 mb-4">
           <h2 className="text-sm font-bold text-foreground">Latest tool built</h2>
         </div>
-        <Link to={`/project/${latestProject.slug}`} className="group block w-full">
+        <Link to={`/project/${latestProject.slug}`} className="group block w-full max-w-[1040px]">
           <div className="w-full overflow-hidden">
             <img
               src={latestProject.image}
