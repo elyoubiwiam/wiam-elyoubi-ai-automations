@@ -2,10 +2,15 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { projectsNewestFirst } from '@/lib/projects';
+import { projects, projectsNewestFirst } from '@/lib/projects';
+
+// Project shown under "Latest tool built". Change this slug to feature a
+// different tool; it falls back to the newest project if the slug is missing.
+const FEATURED_SLUG = 'cv-sorter';
 
 const HeroSection: React.FC = () => {
-  const latestProject = projectsNewestFirst[0];
+  const latestProject =
+    projects.find(p => p.slug === FEATURED_SLUG) ?? projectsNewestFirst[0];
 
   return (
     <section id="hero" className="w-full pt-20 pb-16">
@@ -55,7 +60,7 @@ const HeroSection: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className="mt-6"
+        className="mt-6 mx-auto w-full max-w-[1040px]"
       >
         <div className="flex items-baseline justify-between gap-4 mb-4">
           <h2 className="text-sm font-bold text-foreground">Latest tool built</h2>
