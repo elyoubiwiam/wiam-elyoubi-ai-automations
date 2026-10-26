@@ -27,7 +27,7 @@ Each project has its own case study page on the site and its own repository.
 
 | Project | Type | Live app | Code |
 |---|---|---|---|
-| **Uniform** (CV Sorter): batch CV formatting for recruiters and candidates | Recruitment Tool | [uniform-cv.lovable.app](https://uniform-cv.lovable.app) | [uniform-cv](https://github.com/elyoubiwiam/uniform-cv) |
+| **Uniform** (CV Sorter): batch CV formatting for recruiters | Recruitment Tool | [uniform-cv.lovable.app](https://uniform-cv.lovable.app) | [uniform-cv](https://github.com/elyoubiwiam/uniform-cv) |
 | **Hiro**: recruitment workspace with outreach tracking and explainable CV matching | Recruitment Workspace | [hiro-recruitment.lovable.app](https://hiro-recruitment.lovable.app) | [hiro-recruitment](https://github.com/elyoubiwiam/hiro-recruitment) |
 | **UX Audit**: plain-language breakdown of the persuasion techniques on any landing page | Public Web Tool | [audit-the-ux.lovable.app](https://audit-the-ux.lovable.app) | [audit-the-ux](https://github.com/elyoubiwiam/audit-the-ux) |
 | **SEO Insight Hub**: Search Console audits with AI insights and a 90-day plan | Organic Search Tool | [organic-seo-auditor.lovable.app](https://organic-seo-auditor.lovable.app) | [organic-seo-auditor](https://github.com/elyoubiwiam/organic-seo-auditor) |
