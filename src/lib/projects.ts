@@ -19,6 +19,10 @@ import doctAssistSpecialty from "@/assets/doct-assist-specialty.png";
 import doctAssistSymptoms from "@/assets/doct-assist-symptoms.png";
 import doctAssistIntake from "@/assets/doct-assist-intake.png";
 import doctAssistDocument from "@/assets/doct-assist-document.png";
+import giveBackCover from "@/assets/give-back-cover.png";
+import giveBackTasks from "@/assets/give-back-tasks.png";
+import giveBackMap from "@/assets/give-back-map.png";
+import giveBackDonate from "@/assets/give-back-donate.png";
 
 export interface Project {
   slug: string;
@@ -38,6 +42,7 @@ export interface Project {
   gallery: string[];
   liveUrl?: string;
   liveCta?: string;
+  status?: string;
   exampleImage?: string;
   exampleTitle?: string;
   exampleText?: string;
@@ -141,6 +146,24 @@ export const projects: Project[] = [
     approach: "I built DoctAssist as a guided five-step workflow: a data protection notice, a specialty selector, symptom entry, a specialty-specific intake form and a final clinical document. Twenty outpatient specialties each load a reusable, editable template. The clinician enters symptoms without patient identifiers, and the tool suggests follow-up questions, possible assessments, next steps and red flags for the clinician to review. It works in English and French, and the finished record can be downloaded or printed as a PDF.",
     outcome: "Clinicians get a structured, consistent intake record for every patient without building forms by hand. Every AI suggestion is framed as decision support for review, not a diagnosis, and the tool keeps patient identifiers out of the workflow by design.",
     gallery: [doctAssistSymptoms, doctAssistIntake, doctAssistDocument]
+  },
+  {
+    slug: "give-back",
+    image: giveBackCover,
+    title: "GiveBack",
+    location: "Volunteering Platform",
+    year: "2026",
+    description: "A prototype micro-volunteering platform that matches people with small charity tasks that fit into their day. A project I plan to build into a real product.",
+    category: "Community Platform",
+    workCategory: "Community tools",
+    stack: "React, TanStack Start, TypeScript, Tailwind, Lovable Cloud backend",
+    duration: "Prototype",
+    status: "Prototype",
+    services: ["Product Design", "Full-Stack Development", "Task Booking Flow", "Rewards Design"],
+    challenge: "Small local charities rarely need a full day of help, but they always need an extra pair of hands for short jobs. People who want to help often assume volunteering takes a regular weekly commitment, so good intentions never turn into actual hours given.",
+    approach: "I built GiveBack as a working prototype to test the idea. Volunteers pick their city, set the causes they care about and the time they have, then book tasks such as packing winter coats or reading with pupils. Each task earns points that unlock rewards at partner cafés and shops. Charities post and manage their own tasks through their own space, and a UK map shows where hands are needed across the country. People with no time that week can donate to a charity instead.",
+    outcome: "This is a prototype for now. The full flow works, from finding a task to booking it, earning points and unlocking rewards. It is a project I believe in and I plan to develop it into a real product with UK charities and local reward partners.",
+    gallery: [giveBackTasks, giveBackMap, giveBackDonate]
   }
 ];
 
