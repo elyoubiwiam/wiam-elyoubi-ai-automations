@@ -19,6 +19,10 @@ import doctAssistSpecialty from "@/assets/doct-assist-specialty.png";
 import doctAssistSymptoms from "@/assets/doct-assist-symptoms.png";
 import doctAssistIntake from "@/assets/doct-assist-intake.png";
 import doctAssistDocument from "@/assets/doct-assist-document.png";
+import giveBackCover from "@/assets/give-back-cover.png";
+import giveBackTasks from "@/assets/give-back-tasks.png";
+import giveBackMap from "@/assets/give-back-map.png";
+import giveBackDonate from "@/assets/give-back-donate.png";
 
 export interface Project {
   slug: string;
@@ -38,6 +42,7 @@ export interface Project {
   gallery: string[];
   liveUrl?: string;
   liveCta?: string;
+  status?: string;
   exampleImage?: string;
   exampleTitle?: string;
   exampleText?: string;
