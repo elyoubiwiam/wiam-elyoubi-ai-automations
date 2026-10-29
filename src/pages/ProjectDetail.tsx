@@ -102,7 +102,14 @@ const ProjectDetail: React.FC = () => {
             >
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-8">
                 <div>
-                  <p className="text-sm text-muted-foreground mb-2">{project.category}</p>
+                  <p className="text-sm text-muted-foreground mb-2">
+                    {project.category}
+                    {project.status && (
+                      <span className="ml-3 inline-flex items-center px-2.5 py-0.5 text-xs font-semibold text-highlight-foreground bg-highlight rounded-full align-middle">
+                        {project.status}
+                      </span>
+                    )}
+                  </p>
                   <h1 className="text-5xl md:text-6xl font-semibold text-foreground">{project.title}</h1>
                 </div>
                 <div className="text-sm text-muted-foreground">

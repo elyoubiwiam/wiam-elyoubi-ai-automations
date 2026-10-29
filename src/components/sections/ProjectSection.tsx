@@ -27,6 +27,10 @@ const WORK_CATEGORIES = [
     name: 'Clinical tools',
     description: 'Tools that structure clinical work and keep the clinician in control.',
   },
+  {
+    name: 'Community tools',
+    description: 'Tools that connect people with causes and make giving back easier.',
+  },
 ];
 
 interface ProjectCardProps {
