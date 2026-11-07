@@ -164,7 +164,7 @@ export const projects: Project[] = [
     liveCta: "Try the prototype",
     services: ["Business Analysis", "Requirements Definition", "Process Design", "Product Design", "Full-Stack Development"],
     challenge: "Small local charities often need help with short tasks, such as sorting donations or covering an event for two hours. Most volunteering platforms are built around regular weekly commitments, so these gaps are filled through social media posts and word of mouth. On the other side, many people want to help but do not have a fixed weekly slot. The problem is a mismatch between how charities need help and how volunteering is organised.",
-    approach: "I started by mapping the four groups involved: volunteers, charity coordinators, local reward partners and donors. I then defined what each group needs from the process and turned those needs into requirements. I built the first version at the BuildHer x Lovable one-day MVP event to test the full flow end to end. Volunteers choose their city, causes and available time, then book short tasks. Each completed task earns points that unlock rewards at partner cafés and shops. Charities post and manage their own tasks, a UK map shows where help is needed, and people with no time that week can donate instead.",
+    approach: "I started by mapping the four groups involved: volunteers, charity coordinators, local reward partners and donors. I then defined what each group needs from the process and turned those needs into requirements. I built the first version at the BuildHer x Lovable one-day MVP event to test the full flow end to end. Volunteers choose their city, causes and available time, then book short tasks. Each booking earns points that unlock rewards at partner cafés and shops, and the points are reversed if the booking is cancelled. Charity accounts are created by an administrator after checks, so only verified charities can post tasks. Each charity has its own dashboard to manage tasks, follow key figures and upload legal documents. A UK map shows where help is needed, and people with no time that week can donate instead.",
     outcome: "The prototype covers the complete process, from a charity posting a task to a volunteer booking it, earning points and redeeming a reward. The next step is a small pilot with Manchester charities to test the key assumptions and measure whether short tasks get filled faster than through current channels.",
     gallery: [giveBackTasks, giveBackMap, giveBackDonate],
     analysis: [
@@ -181,7 +181,8 @@ export const projects: Project[] = [
         heading: "Key requirements",
         points: [
           "Volunteers can filter tasks by city, cause and available time.",
-          "Charities can create, edit and close tasks without help from an administrator.",
+          "Charity accounts are created by an administrator, not through open sign-up.",
+          "Charities can create, edit and close their own tasks from a dashboard with key figures.",
           "Bookings are confirmed instantly and shown to both sides.",
           "Points are awarded per task and can be redeemed with partners.",
           "Users with no time can donate directly to a charity."
