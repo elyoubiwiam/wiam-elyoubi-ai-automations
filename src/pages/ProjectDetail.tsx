@@ -204,6 +204,32 @@ const ProjectDetail: React.FC = () => {
               </motion.div>
             </div>
 
+            {/* Business Analysis (optional) */}
+            {project.analysis && project.analysis.length > 0 && (
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.55 }}
+                className="mb-16"
+              >
+                <h2 className="text-2xl font-semibold text-foreground mb-6">The Analysis</h2>
+                <div className="grid sm:grid-cols-2 gap-8">
+                  {project.analysis.map((block) => (
+                    <div key={block.heading} className="border-t border-muted pt-4">
+                      <h3 className="text-sm font-semibold text-foreground mb-3">{block.heading}</h3>
+                      <ul className="space-y-2">
+                        {block.points.map((point) => (
+                          <li key={point} className="text-sm text-muted-foreground leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[0.6em] before:w-1.5 before:h-1.5 before:rounded-full before:bg-muted-foreground/50">
+                            {point}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
             {/* Gallery */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}

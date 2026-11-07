@@ -46,6 +46,7 @@ export interface Project {
   exampleImage?: string;
   exampleTitle?: string;
   exampleText?: string;
+  analysis?: { heading: string; points: string[] }[];
 }
 
 export const projects: Project[] = [
@@ -159,11 +160,50 @@ export const projects: Project[] = [
     stack: "React, TanStack Start, TypeScript, Tailwind, Lovable Cloud backend",
     duration: "Prototype",
     status: "Prototype",
-    services: ["Product Design", "Full-Stack Development", "Task Booking Flow", "Rewards Design"],
-    challenge: "Small local charities rarely need a full day of help, but they always need an extra pair of hands for short jobs. People who want to help often assume volunteering takes a regular weekly commitment, so good intentions never turn into actual hours given.",
-    approach: "I built GiveBack as a working prototype to test the idea. Volunteers pick their city, set the causes they care about and the time they have, then book tasks such as packing winter coats or reading with pupils. Each task earns points that unlock rewards at partner cafés and shops. Charities post and manage their own tasks through their own space, and a UK map shows where hands are needed across the country. People with no time that week can donate to a charity instead.",
-    outcome: "This is a prototype for now. The full flow works, from finding a task to booking it, earning points and unlocking rewards. It is a project I believe in and I plan to develop it into a real product with UK charities and local reward partners.",
-    gallery: [giveBackTasks, giveBackMap, giveBackDonate]
+    services: ["Business Analysis", "Requirements Definition", "Process Design", "Product Design", "Full-Stack Development"],
+    challenge: "Small local charities often need help with short tasks, such as sorting donations or covering an event for two hours. Most volunteering platforms are built around regular weekly commitments, so these gaps are filled through social media posts and word of mouth. On the other side, many people want to help but do not have a fixed weekly slot. The problem is a mismatch between how charities need help and how volunteering is organised.",
+    approach: "I started by mapping the four groups involved: volunteers, charity coordinators, local reward partners and donors. I then defined what each group needs from the process and turned those needs into requirements. I built the first version at the BuildHer x Lovable one-day MVP event to test the full flow end to end. Volunteers choose their city, causes and available time, then book short tasks. Each completed task earns points that unlock rewards at partner cafés and shops. Charities post and manage their own tasks, a UK map shows where help is needed, and people with no time that week can donate instead.",
+    outcome: "The prototype covers the complete process, from a charity posting a task to a volunteer booking it, earning points and redeeming a reward. The next step is a small pilot with Manchester charities to test the key assumptions and measure whether short tasks get filled faster than through current channels.",
+    gallery: [giveBackTasks, giveBackMap, giveBackDonate],
+    analysis: [
+      {
+        heading: "Current process",
+        points: [
+          "Charities share short-term needs through social media, email lists and word of mouth.",
+          "Existing platforms focus on regular, long-term roles.",
+          "There is no simple way to see which small tasks are open nearby.",
+          "Volunteers get no record of the time they have given."
+        ]
+      },
+      {
+        heading: "Key requirements",
+        points: [
+          "Volunteers can filter tasks by city, cause and available time.",
+          "Charities can create, edit and close tasks without help from an administrator.",
+          "Bookings are confirmed instantly and shown to both sides.",
+          "Points are awarded per task and can be redeemed with partners.",
+          "Users with no time can donate directly to a charity."
+        ]
+      },
+      {
+        heading: "Success measures for a pilot",
+        points: [
+          "Share of posted tasks that get booked.",
+          "Time between a task being posted and being booked.",
+          "Share of volunteers who book a second task.",
+          "Booked tasks that are completed rather than cancelled."
+        ]
+      },
+      {
+        heading: "Assumptions and risks",
+        points: [
+          "Local businesses are willing to fund rewards in exchange for visibility.",
+          "Tasks involving children or vulnerable adults need safeguarding checks.",
+          "Volunteer and charity data must be handled in line with UK GDPR.",
+          "No-shows could reduce charity trust, so reminders and cancellation rules are needed."
+        ]
+      }
+    ]
   }
 ];
 
