@@ -160,6 +160,8 @@ export const projects: Project[] = [
     stack: "React, TanStack Start, TypeScript, Tailwind, Lovable Cloud backend",
     duration: "Prototype",
     status: "Prototype",
+    liveUrl: "https://give-back.lovable.app",
+    liveCta: "Try the prototype",
     services: ["Business Analysis", "Requirements Definition", "Process Design", "Product Design", "Full-Stack Development"],
     challenge: "Small local charities often need help with short tasks, such as sorting donations or covering an event for two hours. Most volunteering platforms are built around regular weekly commitments, so these gaps are filled through social media posts and word of mouth. On the other side, many people want to help but do not have a fixed weekly slot. The problem is a mismatch between how charities need help and how volunteering is organised.",
     approach: "I started by mapping the four groups involved: volunteers, charity coordinators, local reward partners and donors. I then defined what each group needs from the process and turned those needs into requirements. I built the first version at the BuildHer x Lovable one-day MVP event to test the full flow end to end. Volunteers choose their city, causes and available time, then book short tasks. Each completed task earns points that unlock rewards at partner cafés and shops. Charities post and manage their own tasks, a UK map shows where help is needed, and people with no time that week can donate instead.",
