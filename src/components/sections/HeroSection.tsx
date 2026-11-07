@@ -6,7 +6,7 @@ import { projects, projectsNewestFirst } from '@/lib/projects';
 
 // Project shown under "Latest tool built". Change this slug to feature a
 // different tool; it falls back to the newest project if the slug is missing.
-const FEATURED_SLUG = 'cv-sorter';
+const FEATURED_SLUG = 'give-back';
 
 const HeroSection: React.FC = () => {
   const latestProject =
