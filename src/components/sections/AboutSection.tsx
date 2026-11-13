@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import wiamAboutImage from '@/assets/wiam-about.jpg';
 
 const AboutSection: React.FC = () => {
@@ -48,15 +48,26 @@ const AboutSection: React.FC = () => {
             <p className="text-sm font-semibold leading-relaxed text-foreground sm:text-base md:text-xl lg:text-2xl">
               I'm Wiam El Youbi. My background spans marketing, web development and cyberpsychology. I build AI automations and custom tools that help businesses work faster and more efficiently.
             </p>
-            <a
-              href="https://www.linkedin.com/in/wiam-el-youbi-2694371b8/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-foreground transition-opacity hover:opacity-75 md:text-base"
-            >
-              <Linkedin size={16} className="text-muted-foreground" />
-              Connect with me on LinkedIn
-            </a>
+            <div className="mt-4 flex flex-col items-start gap-2">
+              <a
+                href="https://www.linkedin.com/in/wiam-el-youbi-2694371b8/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-opacity hover:opacity-75 md:text-base"
+              >
+                <Linkedin size={16} className="text-muted-foreground" />
+                Connect with me on LinkedIn
+              </a>
+              <a
+                href="https://github.com/elyoubiwiam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-medium text-foreground transition-opacity hover:opacity-75 md:text-base"
+              >
+                <Github size={16} className="text-muted-foreground" />
+                View my code on GitHub
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>
