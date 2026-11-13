@@ -2,15 +2,55 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-import { projects, projectsNewestFirst } from '@/lib/projects';
+import { projects, projectsNewestFirst, Project } from '@/lib/projects';
 
-// Project shown under "Latest tool built". Change this slug to feature a
-// different tool; it falls back to the newest project if the slug is missing.
-const FEATURED_SLUG = 'give-back';
+// Projects shown under "Latest tool built", in display order. Change these
+// slugs to feature different tools; each falls back to the newest project
+// if its slug is missing.
+const FEATURED_SLUG = 'social-media-wellbeing';
+const SECONDARY_SLUG = 'give-back';
+
+const ProjectBlock: React.FC<{ project: Project; maxWidth: string; delay: number }> = ({
+  project,
+  maxWidth,
+  delay,
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay, ease: [0.25, 0.1, 0.25, 1] }}
+    className={`mx-auto w-full ${maxWidth}`}
+  >
+    <Link to={`/project/${project.slug}`} className="group block w-full">
+      <div className="w-full overflow-hidden">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
+        <div className="text-sm">
+          <h3 className="font-semibold text-foreground">{project.title}</h3>
+          <p className="font-medium text-muted-foreground">{project.location} • {project.year}</p>
+        </div>
+        <p className="text-xs font-medium text-muted-foreground text-left md:text-right max-w-[420px]">
+          {project.description}
+        </p>
+        <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
+          View project
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+        </span>
+      </div>
+    </Link>
+  </motion.div>
+);
 
 const HeroSection: React.FC = () => {
   const latestProject =
     projects.find(p => p.slug === FEATURED_SLUG) ?? projectsNewestFirst[0];
+  const nextProject =
+    projects.find(p => p.slug === SECONDARY_SLUG && p.slug !== latestProject.slug);
 
   return (
     <section id="hero" className="w-full pt-20 pb-16">
@@ -56,38 +96,17 @@ const HeroSection: React.FC = () => {
         ))}
       </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-        className="mt-6 mx-auto w-full max-w-[1040px]"
-      >
+      <div className="mt-6">
         <div className="flex items-baseline justify-between gap-4 mb-4">
           <h2 className="text-sm font-bold text-foreground">Latest tool built</h2>
         </div>
-        <Link to={`/project/${latestProject.slug}`} className="group block w-full">
-          <div className="w-full overflow-hidden">
-            <img
-              src={latestProject.image}
-              alt={latestProject.title}
-              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+        <ProjectBlock project={latestProject} maxWidth="max-w-[1040px]" delay={0.5} />
+        {nextProject && (
+          <div className="mt-12 border-t border-border pt-8">
+            <ProjectBlock project={nextProject} maxWidth="max-w-[720px]" delay={0.7} />
           </div>
-          <div className="mt-4 flex flex-wrap items-start justify-between gap-4">
-            <div className="text-sm">
-              <h3 className="font-semibold text-foreground">{latestProject.title}</h3>
-              <p className="font-medium text-muted-foreground">{latestProject.location} • {latestProject.year}</p>
-            </div>
-            <p className="text-xs font-medium text-muted-foreground text-left md:text-right max-w-[420px]">
-              {latestProject.description}
-            </p>
-            <span className="inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-              View project
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </span>
-          </div>
-        </Link>
-      </motion.div>
+        )}
+      </div>
     </section>
   );
 };
