@@ -98,7 +98,7 @@ const HeroSection: React.FC = () => {
 
       <div className="mt-6">
         <div className="flex items-baseline justify-between gap-4 mb-4">
-          <h2 className="text-sm font-bold text-foreground">Latest tool built</h2>
+          <h2 className="text-sm font-bold text-foreground">Latest project</h2>
         </div>
         <ProjectBlock project={latestProject} maxWidth="max-w-[1040px]" delay={0.5} />
         {nextProject && (
