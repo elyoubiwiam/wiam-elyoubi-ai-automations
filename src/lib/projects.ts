@@ -23,6 +23,10 @@ import giveBackCover from "@/assets/give-back-cover.png";
 import giveBackTasks from "@/assets/give-back-tasks.png";
 import giveBackMap from "@/assets/give-back-map.png";
 import giveBackDonate from "@/assets/give-back-donate.png";
+import socialWellbeingCover from "@/assets/social-wellbeing-cover.png";
+import socialWellbeingLateNight from "@/assets/social-wellbeing-late-night.png";
+import socialWellbeingComparison from "@/assets/social-wellbeing-comparison.png";
+import socialWellbeingPlatforms from "@/assets/social-wellbeing-platforms.png";
 
 export interface Project {
   slug: string;
@@ -42,6 +46,7 @@ export interface Project {
   gallery: string[];
   liveUrl?: string;
   liveCta?: string;
+  liveLabel?: string;
   status?: string;
   exampleImage?: string;
   exampleTitle?: string;
@@ -204,6 +209,63 @@ export const projects: Project[] = [
           "Tasks involving children or vulnerable adults need safeguarding checks.",
           "Volunteer and charity data must be handled in line with UK GDPR.",
           "No-shows could reduce charity trust, so reminders and cancellation rules are needed."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "social-media-wellbeing",
+    image: socialWellbeingCover,
+    title: "Social Media and Wellbeing",
+    location: "Data Analysis Project",
+    year: "2026",
+    description: "A Python analysis of 4,500 students that tests how social media use relates to sleep, stress, mental health and grades.",
+    category: "Data Analysis",
+    workCategory: "Data analysis",
+    stack: "Python, pandas, matplotlib, Jupyter Notebook",
+    duration: "Course project",
+    liveUrl: "https://github.com/elyoubiwiam/Python-training/tree/main/social-media-wellbeing",
+    liveCta: "View the notebook on GitHub",
+    liveLabel: "View on GitHub",
+    services: ["Data Cleaning", "Data Preparation", "Exploratory Analysis", "Data Visualisation", "Behavioural Analysis"],
+    challenge: "The public conversation about social media and young people often comes down to one message: screen time is bad for you. With a background in cyberpsychology, I wanted to test that idea on data and find out which part of social media use matters most. Is it the time spent, the time of day, the platform or how often people compare themselves to others?",
+    approach: "I built this as my portfolio project for Codecademy's Learn Python for Data Science path, using a Kaggle dataset of 4,500 students. In a Jupyter notebook, I checked the data for missing values, duplicates and impossible values, then cleaned it with pandas. I added new columns, such as usage groups and a low sleep flag, and used two merges: a lookup table that turns social comparison into a score, and a platform summary table. I then answered five questions with group averages, pivot tables, crosstabs, correlations and charts, and wrote up the results from a cyberpsychology perspective.",
+    outcome: "Time and timing mattered far more than platform or social comparison. Heavy users slept about 2 hours less than light users, reported more than double the stress and scored 25 points lower on mental health. Late-night use was linked to short sleep, while social comparison made almost no difference to stress. The links were also much stronger than in most published research, which suggests the dataset may be synthetic. I flagged this in the notebook, because a result that looks this clean should be checked against existing research before anyone relies on it.",
+    gallery: [socialWellbeingLateNight, socialWellbeingComparison, socialWellbeingPlatforms],
+    analysis: [
+      {
+        heading: "Questions",
+        points: [
+          "How much time do students spend on social media, and on which platforms?",
+          "Is heavier use linked to less sleep, more stress, lower mental health and lower grades?",
+          "Does late-night use affect sleep?",
+          "How does social comparison relate to stress and mental health?",
+          "Which platforms are linked to a negative or beneficial overall impact?"
+        ]
+      },
+      {
+        heading: "Key findings",
+        points: [
+          "Students spend 5.3 hours a day on social media on average, and time barely changes between platforms.",
+          "Heavy users (over 6 hours a day) sleep 5.7 hours on average, compared with 7.6 hours for light users.",
+          "65% of late-night users sleep under 7 hours, compared with 42% of other students.",
+          "Stress is the same for students who never compare themselves to others and those who always do (13.6)."
+        ]
+      },
+      {
+        heading: "Cyberpsychology reading",
+        points: [
+          "The results fit the displacement idea: time online takes the place of sleep, study and offline time.",
+          "Social comparison theory predicts a link with stress, but the data only measures how often students compare, not who with or how it feels.",
+          "Under 4% of students fall into the negative impact group, even though 30% are heavy users. Harm that builds slowly may go unnoticed."
+        ]
+      },
+      {
+        heading: "Limitations and next steps",
+        points: [
+          "The data is self-reported, covers students only and shows correlations, not causes.",
+          "I compared averages and correlations only, without significance tests.",
+          "The next step is to test the same questions on real survey data."
         ]
       }
     ]

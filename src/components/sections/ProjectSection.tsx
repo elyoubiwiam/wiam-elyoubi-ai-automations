@@ -31,6 +31,10 @@ const WORK_CATEGORIES = [
     name: 'Community tools',
     description: 'Tools that connect people with causes and make giving back easier.',
   },
+  {
+    name: 'Data analysis',
+    description: 'Projects that use data to answer questions about people and behaviour.',
+  },
 ];
 
 interface ProjectCardProps {
