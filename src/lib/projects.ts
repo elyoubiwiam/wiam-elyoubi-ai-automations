@@ -130,8 +130,8 @@ export const projects: Project[] = [
     liveCta: "Format your CVs",
     services: ["Product Design", "Full-Stack Development", "AI Integration", "Document Export"],
     challenge: "Recruiters receive CVs in different layouts, file types and levels of detail. Reformatting every document for a client takes time, creates inconsistencies and slows down candidate submissions.",
-    approach: "I built Uniform to process PDFs, Word files and scanned CVs in batches, five at a time. The recruiter picks a template, adds their branding and uploads the CVs. Claude extracts each one into a consistent structure while keeping the candidate's own words, and the recruiter reviews it side by side with the original. They can edit the text, add notice period, salary and relocation details, keep private notes, shorten the CV or anonymise it for a blind submission.",
-    outcome: "Recruiters can turn a mixed batch of CVs into consistent, client-ready documents without rebuilding them one by one. Each CV gets a spelling check before download and can be exported as PDF or Word, with an optional recruiter cover page.",
+    approach: "I built Uniform to process PDFs, Word files and scanned CVs in batches, five at a time. The recruiter picks a template, adds their branding and uploads the CVs. Claude extracts each one into a consistent structure while keeping the candidate's own words, and the recruiter reviews it side by side with the original. They can edit the text, add notice period, salary and relocation details, keep private notes or anonymise it for a blind submission. Uniform also points out details a client would expect but the CV is missing, such as a phone number or dates.",
+    outcome: "Recruiters can turn a mixed batch of CVs into consistent, client-ready documents without rebuilding them one by one. Each CV gets a spelling check before download and can be exported as PDF or Word, with an optional recruiter cover page. Several CVs download together as one ZIP, and the template can be saved as a file to reuse on another computer or share with colleagues.",
     gallery: [cvSorterReview, cvSorterTemplate, cvSorterCover]
   },
   {

@@ -8,3 +8,4 @@
 - [x] Keep the About image and smaller text in one row at every screen size
 - [x] Replace the SEO Insight Hub carousel cover with a clearer landing-page screenshot
 - [x] Add CV Sorter to Work with real screens, a full case study, and live tool CTAs
+- [x] Update the Uniform case study: remove the retired CV shortening feature, add gap hints, ZIP download and template file
