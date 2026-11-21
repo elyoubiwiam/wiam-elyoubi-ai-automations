@@ -2,7 +2,7 @@
 
 - [x] Check Google Search Console connection and add the site's verification tag
 - [x] Request publication of the verification tag and existing sitemap with approval
-- [ ] Verify the site, add its Search Console property, and submit the live sitemap (blocked: verification tag is not yet present in the published homepage HTML)
+- [x] Verify the site, add its Search Console property, and submit the live sitemap
 
 - [x] Use the supplied DoctAssist screenshot as the latest-project cover and verify emoji rendering
 
