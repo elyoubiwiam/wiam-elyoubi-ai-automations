@@ -1,5 +1,9 @@
 # Roadmap
 
+- [x] List SEO findings, refresh foundation checks, and confirm real case-study content
+- [ ] Fix case-study titles, descriptions and canonical addresses (blocked: approval for an upgrade supporting page-specific rendered HTML)
+- [ ] Fix case-study shared-link previews (blocked: approval for the same upgrade and an appropriate preview-image source)
+
 - [x] Check Google Search Console connection and add the site's verification tag
 - [x] Request publication of the verification tag and existing sitemap with approval
 - [x] Verify the site, add its Search Console property, and submit the live sitemap
